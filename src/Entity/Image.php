@@ -50,11 +50,16 @@ class Image
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Service", inversedBy="image")
+     */
+    private $service;
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
+  
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
@@ -98,5 +103,41 @@ class Image
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getService(): ?Service
+    {
+        return $this->service;
+    }
+
+    public function setService(?Service $service): self
+    {
+        $this->service = $service;
+
+        return $this;
     }
 }
