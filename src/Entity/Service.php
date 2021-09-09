@@ -5,9 +5,9 @@ namespace App\Entity;
 use App\Entity\Image;
 use App\Repository\ImageRepository;
 use App\Repository\ServiceRepository;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -40,21 +40,21 @@ class Service
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $type;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="upload_img", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="service_img", fileNameProperty="imageName", size="imageSize")
      * 
      * @var File|null
      */
     private $imageFile;
 
      /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @var string|null
      */
@@ -68,7 +68,7 @@ class Service
     private $updateAt;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var int|null
      */
@@ -145,6 +145,9 @@ class Service
         return $this;
     }
 
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
@@ -160,7 +163,7 @@ class Service
     {
         return $this->imageFile;
     }
-
+    
     public function setImageName(?string $imageName): void
     {
         $this->imageName = $imageName;

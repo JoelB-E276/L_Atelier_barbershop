@@ -54,6 +54,7 @@ class Image
      * @ORM\OneToOne(targetEntity="App\Entity\Service", inversedBy="image")
      */
     private $service;
+    // MODIFIER INVERSEDBY CAR PLUS FONCTIONNEL VOIR BARRE SYMFO DOCTRINE 
 
     public function getId(): ?int
     {

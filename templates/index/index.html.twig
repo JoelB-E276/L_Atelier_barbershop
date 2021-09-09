@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}l'Atelier{% endblock %}
+
+{% block body %}
+
+{% for service in services %}
+ {{ service.type }}
+ {{ service.title }}
+ {{ service.text }}
+ {{ service.price }}
+  <div>{{ service.imageName }} <img src="{{ asset('image/' ~ service.imageName) }}"></div>
+
+
+{% endfor %}
+
+{% for image in imag %}
+ <div>{{ image.ImageName }} <img src="{{ asset('image/' ~ image.imageName) }}"></div>
+ {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
