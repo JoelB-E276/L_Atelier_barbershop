@@ -27,7 +27,6 @@ class ImageCrudController extends AbstractCrudController
             TextareaField::new('imageFile', 'Image')
             ->setFormType(VichImageType::class)
             ->OnlyWhenCreating(),
-             ImageField::new('file')->OnlyOnIndex(),
              ImageField::new('imageName', 'Image')
             ->onlyOnIndex()
             ->setBasePath('/image'),

@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use App\Entity\Service;
+use App\Entity\OpeningHours;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -28,6 +30,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Image', 'fas fa-image', Image::class);
+        yield MenuItem::linkToCrud('Image', 'fa fa-image', Image::class);
+        yield MenuItem::linkToCrud('Prestation', 'fa fa-scissors', Service::class);
+        yield MenuItem::linkToCrud('Horaires', 'far fa-clock', OpeningHours::class);
+
+
     }
 }
