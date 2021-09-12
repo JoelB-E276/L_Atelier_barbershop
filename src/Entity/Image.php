@@ -50,12 +50,6 @@ class Image
      */
     private $updatedAt;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Service", inversedBy="image")
-     */
-    private $service;
-    // MODIFIER INVERSEDBY CAR PLUS FONCTIONNEL VOIR BARRE SYMFO DOCTRINE 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -130,15 +124,4 @@ class Image
         return $this;
     }
 
-    public function getService(): ?Service
-    {
-        return $this->service;
-    }
-
-    public function setService(?Service $service): self
-    {
-        $this->service = $service;
-
-        return $this;
-    }
 }

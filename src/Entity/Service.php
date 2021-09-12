@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ServiceRepository::class)
@@ -45,6 +46,11 @@ class Service
     private $type;
 
     /**
+     * @Assert\File(
+     *     maxSize = "200k",
+     *     mimeTypes = {"image/x-icon, image/jpeg, image/jpg, image/png"},
+     *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"
+     * )
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
      * @Vich\UploadableField(mapping="service_img", fileNameProperty="imageName", size="imageSize")
