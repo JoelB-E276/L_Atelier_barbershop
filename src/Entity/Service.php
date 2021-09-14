@@ -36,7 +36,7 @@ class Service
     private $text;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $price;
 
@@ -80,6 +80,11 @@ class Service
      */
     private $imageSize;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageAlt;
+
     public function __construct()
     {
         $this->updateAt = new \DateTime();
@@ -115,12 +120,12 @@ class Service
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(?float $price): self
+    public function setPrice(?string $price): self
     {
         $this->price = $price;
 
@@ -188,6 +193,18 @@ class Service
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): self
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
     }
 
 

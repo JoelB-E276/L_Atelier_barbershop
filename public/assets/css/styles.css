@@ -3,6 +3,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+  font-size: 1rem;
 }
 .content{
 	flex: 1; /*EXPLICATION*/
@@ -12,15 +13,22 @@ body {
     list-style: none!important;
     list-style-type: none;
   }
+
+
+
 /*########## HEADER ##########*/
 #headerContainer{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(12, 81, 128);
 
 }
 
 #headerLogo{
-    width: 105vw;
+    width: 205vw;
+    background-color: black;
 }
+
+
+
 
 /*########## FOOTER ##########*/
 .footerContainer{
@@ -29,25 +37,51 @@ body {
     
 }
 
+
+
+
 /*########## PRESTATIONS ##########*/
 .service{
-font-size: 28px;
+font-size: 1.75rem;
 
+}
+
+
+
+
+/*########## NOS MARQUES ##########*/
+
+.brandContainer{
+  background-color: cadetblue;
+  }
+  
+.brandContainer img{
+    width: 15vw;
+}
+
+/*########## MEDIA QUERIES ##########*/
+
+@media screen and (min-width:481px){
+#headerLogo{
+   width: 48vw;
+   background-color: darkblue;
+  }
+  
 }
 
 @media screen and (min-width:768px){
-    #headerLogo{
-     width: 25vw;
-     font-size: 6px;
+#headerLogo{
+  width: 68vw;
+  background-color: white;
+  }
 
-    }
 }
 
 @media screen and (min-width:1024px){
-    #headerLogo{
-     width: 25vw;
-     font-size: 6px;
-    }
+#headerLogo{
+  width: 124vw;
+  background-color: red;
+  }
 }   
 
 
