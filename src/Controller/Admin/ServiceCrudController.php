@@ -28,7 +28,7 @@ class ServiceCrudController extends AbstractCrudController
         return [
             TextField::new('title', 'Titre'),
             TextField::new('text', 'Texte'),
-            NumberField::new('price', 'Tarif'),
+            TextField::new('price', 'Tarif'),
             TextField::new('type', 'Type de prestation'),
             ImageField::new('imageName', 'Image')->onlyOnIndex()->setBasePath('/image'),
             /* ImageField::new('image')
