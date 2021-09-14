@@ -6,6 +6,8 @@ use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
@@ -21,8 +23,11 @@ class Image
     private $id;
 
     /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
+     * @Assert\File(
+     *     maxSize = "200k",
+     *     mimeTypes = {"image/x-icon, image/jpeg, image/jpg, image/png"},
+     *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"   
+     * )
      * @Vich\UploadableField(mapping="upload_img", fileNameProperty="imageName", size="imageSize")
      * 
      * @var File|null
@@ -51,10 +56,9 @@ class Image
     private $updatedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Service", inversedBy="image")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $service;
-    // MODIFIER INVERSEDBY CAR PLUS FONCTIONNEL VOIR BARRE SYMFO DOCTRINE 
+    private $imageAlt;
 
     public function getId(): ?int
     {
@@ -130,15 +134,16 @@ class Image
         return $this;
     }
 
-    public function getService(): ?Service
+    public function getImageAlt(): ?string
     {
-        return $this->service;
+        return $this->imageAlt;
     }
 
-    public function setService(?Service $service): self
+    public function setImageAlt(?string $imageAlt): self
     {
-        $this->service = $service;
+        $this->imageAlt = $imageAlt;
 
         return $this;
     }
+
 }

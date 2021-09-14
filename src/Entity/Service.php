@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ServiceRepository::class)
@@ -35,7 +36,7 @@ class Service
     private $text;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $price;
 
@@ -45,6 +46,11 @@ class Service
     private $type;
 
     /**
+     * @Assert\File(
+     *     maxSize = "200k",
+     *     mimeTypes = {"image/x-icon, image/jpeg, image/jpg, image/png"},
+     *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"
+     * )
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
      * @Vich\UploadableField(mapping="service_img", fileNameProperty="imageName", size="imageSize")
@@ -73,6 +79,11 @@ class Service
      * @var int|null
      */
     private $imageSize;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageAlt;
 
     public function __construct()
     {
@@ -109,12 +120,12 @@ class Service
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(?float $price): self
+    public function setPrice(?string $price): self
     {
         $this->price = $price;
 
@@ -182,6 +193,18 @@ class Service
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): self
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
     }
 
 

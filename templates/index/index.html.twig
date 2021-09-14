@@ -1,35 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}l'Atelier{% endblock %}
+{% block title %}l'Atelier Barbershop Rouen{% endblock %}
 
 {% block body %}
 
-{% for service in services %}
- {{ service.type }}
- {{ service.title }}
- {{ service.text }}
- {{ service.price }}
-{#   <div>{{ service.imageName }} <img src="{{ asset('image/' ~ service.imageName) }}"></div>
- #}
-
-{% endfor %}
+<section class="container-fluid service">
+  <div class="row d-flex justify-content-around">
+    <div class="col-10 col-lg-3 border border-primary">
+      <h2>Coupe</h2>
+       {% for service in services %}
+         {% if service.type == "Coupe"%}
+           <div>{{ service.title }}{{' '}}{{service.price }}{{ ' €'}}</div>
+           <span>{{ service.text }}</span>  
+         {% endif %} 
+       {% endfor %}  
+     </div>
+   <div class="col-10 col-lg-3 border border-primary">
+      <h2>Barbe</h2>
+       {% for service in services %}
+         {% if service.type == "Barbe"%}
+           <div>{{ service.title }}{{' '}}{{service.price }}{{ ' €'}}</div>
+           <span>{{ service.text }}</span>  
+         {% endif %} 
+       {% endfor %}  
+     </div>
+   <div class="col-10 col-lg-3 border border-primary">
+      <h2>Coloration / Défrisage</h2>
+       {% for service in services %}
+         {% if service.type == "Coloration / Défrisage"%}
+           <div>{{ service.title }}{{' '}}{{service.price }}{{ ' €'}}</div>
+           <span>{{ service.text }}</span>  
+         {% endif %} 
+       {% endfor %}  
+     </div>               
+</section>
+ {#   <div>{{ service.imageName }} <img src="{{ asset('image/' ~ service.imageName) }}"></div>
+        #}
 
 {% for image in imag %}
 {#  <div>{{ image.ImageName }} <img src="{{ asset('image/' ~ image.imageName) }}"></div>
  #} {% endfor %}
 <div class="container-fluid">
-            <div class="row">
-                <div class="col-1 col-lg-1">
-                {% for openingHours in openingHours %}
-                   <div>{{ openingHours.day }}</div>
-                {% endfor %}
-                    </div>
-                <div class="col-2 col-lg-2">
-                {% for openingHours in openingHours %}
-                   <div>{{ openingHours.open }}{{ openingHours.close }}</div>
-                   {% endfor %}
-                </div>
+    <div class="row">
+        <div class="col-1 col-lg-1">
+            {% for openingHours in openingHours %}
+                <div>{{ openingHours.day }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-2 col-lg-2">
+            {% for openingHours in openingHours %}
+                <div>{{ openingHours.open }}{{ openingHours.close }}</div>
+            {% endfor %}
+        </div> 
+    </div>           
+</div>
 
+<article class="container brandContainer">
+  <h3 class="text-center my-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
+  <div class="d-flex justify-content-evenly">
+  <div><a href="{{'https://www.instagram.com/' }}"><img src="{{ asset('image/logo_Keune.png') }}" alt="Notre Instagram"></a></div>
+            <div><a href="{{'https://fr-fr.facebook.com/pages/category/Hair-Salon/Latelier-2159799040919067/' }}"><img src="{{ asset('image/logo_Davines.png') }}" alt="Notre Facebook" </a></div>  </div>
+                        <div><a href="{{'https://fr-fr.facebook.com/pages/category/Hair-Salon/Latelier-2159799040919067/' }}"><img src="{{ asset('image/logo_Reuzel.png') }}" alt="Notre Facebook"></a></div>  </div>
+                                    <div><a href="{{'https://fr-fr.facebook.com/pages/category/Hair-Salon/Latelier-2159799040919067/' }}"><img src="{{ asset('image/logo.png') }}" alt="Notre Facebook"></a></div>  </div>
+
+
+<article>
 
 
 
