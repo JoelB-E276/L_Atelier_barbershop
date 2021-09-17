@@ -40,9 +40,9 @@ class ServiceCrudController extends AbstractCrudController
             ->setFormType(VichImageType::class)->hideOnIndex(),
             ChoiceField::new('type', 'Type de prestation')
             ->setChoices([
-                'Coupe' => "Coupe",
-                'Barbe' => "Barbe",
-                "Coloration / Défrisage" => 'Coloration / Défrisage'
+                'Coupe' => 'Coupe',
+                'Barbe' => 'Barbe',
+                'Coloration / Défrisage' => 'Coloration / Défrisage'
             ])
 
            

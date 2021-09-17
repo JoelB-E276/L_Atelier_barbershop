@@ -32,6 +32,7 @@ class OpeningHours
      */
     private $close;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +70,18 @@ class OpeningHours
     public function setClose(?string $close): self
     {
         $this->close = $close;
+
+        return $this;
+    }
+
+    public function getImage(): ?image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

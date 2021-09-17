@@ -45,16 +45,6 @@ class Information
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $instagram;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $facebook;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $city;
 
     public function getId(): ?int
@@ -118,30 +108,6 @@ class Information
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getInstagram(): ?string
-    {
-        return $this->instagram;
-    }
-
-    public function setInstagram(?string $instagram): self
-    {
-        $this->instagram = $instagram;
-
-        return $this;
-    }
-
-    public function getFacebook(): ?string
-    {
-        return $this->facebook;
-    }
-
-    public function setFacebook(?string $facebook): self
-    {
-        $this->facebook = $facebook;
 
         return $this;
     }
