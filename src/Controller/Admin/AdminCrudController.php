@@ -20,8 +20,7 @@ class AdminCrudController extends AbstractCrudController
     {
         return [
             TextField::new('username', 'Nom / Email')
-            ->setPermission('ROLE_SUPER_ADMIN')
-            ,
+            ->setPermission('ROLE_SUPER_ADMIN'),
             ChoiceField::new('roles', 'Roles')
             ->setPermission('ROLE_SUPER_ADMIN')
             ->allowMultipleChoices()

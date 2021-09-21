@@ -60,6 +60,7 @@ class Image
      */
     private $imageAlt;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -142,28 +143,6 @@ class Image
     public function setImageAlt(?string $imageAlt): self
     {
         $this->imageAlt = $imageAlt;
-
-        return $this;
-    }
-
-    public function getOpeninghours(): ?Openinghours
-    {
-        return $this->openinghours;
-    }
-
-    public function setOpeninghours(?Openinghours $openinghours): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($openinghours === null && $this->openinghours !== null) {
-            $this->openinghours->setImage(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($openinghours !== null && $openinghours->getImage() !== $this) {
-            $openinghours->setImage($this);
-        }
-
-        $this->openinghours = $openinghours;
 
         return $this;
     }

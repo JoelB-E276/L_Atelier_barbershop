@@ -71,7 +71,7 @@ class Service
      * @var \DateTimeInterface|null
      */
 
-    private $updateAt;
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -87,10 +87,10 @@ class Service
 
     public function __construct()
     {
-        $this->updateAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
-
-    
+/*  ##################### UPDATEAT auparavant, Tester upload image #################
+ */    
     public function getId(): ?int
     {
         return $this->id;

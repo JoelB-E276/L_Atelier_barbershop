@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use App\Entity\Information;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\File\File;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -25,6 +26,7 @@ class ImageCrudController extends AbstractCrudController
         return [
             TextField::new('imageName', 'Nom du fichier')
             ->OnlyOnIndex(),
+            TextField::new('information'),
             TextareaField::new('imageFile', 'Image')
             ->setFormType(VichImageType::class)
             ->OnlyWhenCreating(),
