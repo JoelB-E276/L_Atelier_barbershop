@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AdminRepository::class)
+ * @UniqueEntity(fields={"username"}, message="Cette identifiant ne peut être utilisé")
  */
 class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -43,10 +45,10 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @deprecated since Symfony 5.3, use getUserIdentifier instead
      */
-    public function getUsername(): string
+     public function getUsername(): string
     {
         return (string) $this->username;
-    }
+    } 
 
     public function setUsername(string $username): self
     {
@@ -85,7 +87,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @see PasswordAuthenticatedUserInterface
+     * @see 
      */
     public function getPassword(): string
     {

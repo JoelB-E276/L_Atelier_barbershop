@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'open_sans_condensedbold';
+  src: url('../font/OpenSans-CondBold-webfont.woff');
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: 'open_sanscondensed_light';
+    src: url('../font/OpenSans-CondLight-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: 'open_sansCnLtIt';
+    src: url('../font/OpenSans-CondLightItalic-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: 'alexbrush-regular';
+    src: url('../font/alexbrush-regular-webfont.woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
 body {
 	margin: 0;
 	display: flex;
@@ -15,22 +37,40 @@ body {
   }
 
 
+/*################################*/
+/*############ HEADER ############*/
+/*################################*/
 
-/*########## HEADER ##########*/
-#headerContainer{
-    background-color: rgb(12, 81, 128);
-
-}
-
-#headerLogo{
-    width: 205vw;
+#headerContainer_Logo{
     background-color: black;
+    width: auto;
+}
+
+#headerContainer_Logo_Img{
+  width: 70vw;
+}
+
+.headerContainer_Chevron{
+  height: 15vh;
+}
+
+@keyframes hover-me {
+  100% { transform: translate3d(0, 25px, 0); }
+}
+.headerContainer_Chevron_Img{
+  margin: auto;
+  width: 5em;
+  height: 5em;
+  animation: hover-me .8s infinite ease-in-out alternate;
 }
 
 
 
 
-/*########## FOOTER ##########*/
+/*################################*/
+/*########### FOOTER #############*/
+/*################################*/
+
 .footerContainer{
     background-color: rgb(224, 228, 11);
     height: 30vh;
@@ -39,52 +79,96 @@ body {
 
 
 
-
+/*#################################*/
 /*########## PRESTATIONS ##########*/
-.service{
+/*#################################*/
+
+#serviceContainer{
 font-size: 1.75rem;
+font-family: 'alexbrush-regular';
+
 
 }
 
 
+/*################################*/
+/*######## INFO_CONTAINER ########*/
+/*################################*/
+.infoContainer_storefrontContainer{
+  text-align: center;
+}
+.infoContainer_storefrontContainer img{
+  width: 70vw;
+ }
+
+/*################################*/
+/*########## MAP GOOGLE ##########*/
+/*################################*/
+
+.mapContainer{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.mapContainer iframe{
+  left:0;
+  top:0;
+  height:30%;
+  width:80%;
+  position:absolute;
+}
 
 
-/*########## NOS MARQUES ##########*/
+/*#################################*/
+/*######## BRAND CONTAINER ########*/
+/*#################################*/
 
 .brandContainer{
   background-color: cadetblue;
+  height: auto;
   }
   
 .brandContainer img{
-    width: 15vw;
+    width: 35vw;
+    max-width: 100%;
+    max-height: 100%;
 }
-
+/*###################################*/
 /*########## MEDIA QUERIES ##########*/
+/*###################################*/
 
-@media screen and (min-width:481px){
-#headerLogo{
-   width: 48vw;
+
+@media screen and (min-width:481px) and (max-width: 768px){
+#headerContainer_Logo{
    background-color: darkblue;
   }
   
 }
 
-@media screen and (min-width:768px){
-#headerLogo{
-  width: 68vw;
+@media screen and (min-width:769px) and (max-width:1024px){
+#headerContainer_Logo{
   background-color: white;
+
   }
 
-}
-
+} 
 @media screen and (min-width:1024px){
-#headerLogo{
-  width: 124vw;
+
+#headerContainer{
+  background-color: blue;
+}  
+#headerContainer_Logo{
   background-color: red;
+
   }
+ #headerContainer_Logo_Img{
+    width: 50vw;
+  }
+  
 }   
-
-
+ 
 
 
 

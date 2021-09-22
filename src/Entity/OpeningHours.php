@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\OpeningHoursRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=OpeningHoursRepository::class)
+ * @Vich\Uploadable
  */
 class OpeningHours
 {
@@ -31,6 +35,7 @@ class OpeningHours
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $close;
+
 
     public function getId(): ?int
     {
@@ -72,4 +77,5 @@ class OpeningHours
 
         return $this;
     }
+
 }

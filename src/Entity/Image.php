@@ -25,7 +25,7 @@ class Image
     /**
      * @Assert\File(
      *     maxSize = "200k",
-     *     mimeTypes = {"image/x-icon, image/jpeg, image/jpg, image/png"},
+     *     mimeTypes = {"image/x-icon", "image/jpeg", "image/jpg", "image/png"},
      *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"   
      * )
      * @Vich\UploadableField(mapping="upload_img", fileNameProperty="imageName", size="imageSize")
@@ -59,6 +59,7 @@ class Image
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageAlt;
+
 
     public function getId(): ?int
     {

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Admin;
 use App\Entity\Image;
 use App\Entity\Service;
 use App\Entity\OpeningHours;
@@ -35,6 +36,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Prestation', 'fa fa-scissors', Service::class);
         yield MenuItem::linkToCrud('Horaires', 'far fa-clock', OpeningHours::class);
         yield MenuItem::linkToCrud('Coordonnées', 'fas fa-info', Information::class);
+        yield MenuItem::linkToCrud('Comptes Utilisateurs', 'fas fa-user-lock', Admin::class)->setPermission('ROLE_SUPER_ADMIN');
+
 
     }
 }

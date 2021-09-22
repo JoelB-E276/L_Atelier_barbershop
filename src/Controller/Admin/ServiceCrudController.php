@@ -28,21 +28,21 @@ class ServiceCrudController extends AbstractCrudController
         return [
             TextField::new('title', 'Titre'),
             TextField::new('text', 'Texte'),
-            NumberField::new('price', 'Tarif'),
+            TextField::new('price', 'Tarif'),
             TextField::new('type', 'Type de prestation'),
-            ImageField::new('imageName', 'Image')->onlyOnIndex()->setBasePath('/image'),
-            /* ImageField::new('image')
+          /*  ImageField::new('imageName', 'Image')->onlyOnIndex()->setBasePath('/image'),
+             ImageField::new('image')
             ->setUploadDir('public/image')
             ->setBasePath('public/image')
             ->setFormTypeOption('multiple', true)
-            ->onlyOnForms(), */
+            ->onlyOnForms(),
              TextareaField::new('imageFile')
-            ->setFormType(VichImageType::class)->hideOnIndex(),
+            ->setFormType(VichImageType::class)->hideOnIndex(), */
             ChoiceField::new('type', 'Type de prestation')
             ->setChoices([
-                'Coupe' => "Coupe",
-                'Barbe' => "Barbe",
-                "Coloration / Défrisage" => 'Coloration / Défrisage'
+                'Coupe' => 'Coupe',
+                'Barbe' => 'Barbe',
+                'Coloration / Défrisage' => 'Coloration / Défrisage'
             ])
 
            

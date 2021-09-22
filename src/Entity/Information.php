@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\InformationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=InformationRepository::class)
+ * @Vich\Uploadable
  */
 class Information
 {
@@ -45,17 +49,47 @@ class Information
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $instagram;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $facebook;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $city;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "200k",
+     *     mimeTypes = {"image/x-icon", "image/jpeg", "image/jpg", "image/png"},
+     *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"   
+     * )
+     * @Vich\UploadableField(mapping="upload_img", fileNameProperty="imageName", size="imageSize")
+     * 
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @var string|null
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int|null
+     */
+    private $imageSize;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTimeInterface|null
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageAlt;
+ 
+
 
     public function getId(): ?int
     {
@@ -122,30 +156,6 @@ class Information
         return $this;
     }
 
-    public function getInstagram(): ?string
-    {
-        return $this->instagram;
-    }
-
-    public function setInstagram(?string $instagram): self
-    {
-        $this->instagram = $instagram;
-
-        return $this;
-    }
-
-    public function getFacebook(): ?string
-    {
-        return $this->facebook;
-    }
-
-    public function setFacebook(?string $facebook): self
-    {
-        $this->facebook = $facebook;
-
-        return $this;
-    }
-
     public function getCity(): ?string
     {
         return $this->city;
@@ -157,4 +167,55 @@ class Information
 
         return $this;
     }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+    
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+      public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): self
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
+    }
+
+
 }
