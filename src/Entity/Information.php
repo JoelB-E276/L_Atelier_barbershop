@@ -54,7 +54,7 @@ class Information
     /**
      * @Assert\File(
      *     maxSize = "200k",
-     *     mimeTypes = {"image/x-icon, image/jpeg, image/jpg, image/png"},
+     *     mimeTypes = {"image/x-icon", "image/jpeg", "image/jpg", "image/png"},
      *     mimeTypesMessage = "Poids max 200 Ko et format 'Image' uniquement"   
      * )
      * @Vich\UploadableField(mapping="upload_img", fileNameProperty="imageName", size="imageSize")
@@ -193,19 +193,7 @@ class Information
         return $this->imageSize;
     }
 
-    public function getImage(): ?Image
-    {
-        return $this->image;
-    }
-
-    public function setImage(?Image $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
+      public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }

@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<section class="container-fluid serviceContainer my-5">
+<section class="container-fluid my-5" id="serviceContainer">
   <div class="row d-flex justify-content-around">
     <div class="col-10 col-lg-3 border border-primary mb-3 service">
       <h2 class="text-center">Coupe</h2>
@@ -49,28 +49,37 @@
 {% for image in imag %}
 {#  <div>{{ image.ImageName }} <img src="{{ asset('image/' ~ image.imageName) }}"></div>
  #} {% endfor %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-1 col-lg-1">
+<div class="container-fluid infoContainer">
+    <div class="row d-flex justify-content-evenly-sm ">
+        <div class="col-5 col-sm-2 col-md-2 col-lg-2 col-xl-1">
             {% for openingHours in openingHours %}
                 <div>{{ openingHours.day }}</div>
             {% endfor %}
         </div>
-        <div class="col-2 col-lg-2">
+        <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2">
             {% for openingHours in openingHours %}
                 <div>{{ openingHours.open }}{{ openingHours.close }}</div>
             {% endfor %}
+        </div>
+
+        <div class="infoContainer_storefrontContainer my-3">
+          <img class="infoContainer_storefrontContainer_img" src="{{ asset('image/devanture.jpg') }}">
+        </div>
+
+        <div class="infoContainer_mapContainer">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.1924133156353!2d1.0875271850066959!3d49.44308023709414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0dd4f05221847%3A0x4e2697eda9580908!2sL&#39;atelier!5e0!3m2!1sfr!2sfr!4v1632235916170!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div> 
-    </div>           
+     </div>           
 </div>
 
 <article class="container brandContainer">
   <h3 class="text-center my-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
   <div class="d-flex justify-content-evenly">
-    <div><img src="{{ asset('image/logo_Keune.png') }}" alt="Notre Instagram"></a></div>
-    <div><img src="{{ asset('image/logo_Davines.png') }}" alt="Notre Facebook" </a></div>  </div>
-    <div><img src="{{ asset('image/logo_Reuzel.png') }}" alt="Notre Facebook"></a></div>  </div>
-    <div><img src="{{ asset('image/logo.png') }}" alt="Notre Facebook"></a></div>  </div>
+    <div class="text-center my-2">
+      <img src="{{ asset('image/logo_Keune.png') }}" alt="logo keune">
+      <img src="{{ asset('image/logo_Davines.png') }}" alt="logo Davines">
+      <img src="{{ asset('image/logo_Reuzel.png') }}" alt="logo Reuzel">
+    </div>
 <article>
 
 
