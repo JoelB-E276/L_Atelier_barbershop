@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<section class="container-fluid my-5" id="serviceContainer">
+<section class="container-fluid py-5" id="serviceContainer">
   <div class="row d-flex justify-content-around">
-    <div class="col-10 col-lg-3 border border-primary mb-3 service">
+    <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
       <h2 class="text-center">Coupe</h2>
        {% for service in services %}
          {% if service.type == "Coupe"%}
@@ -18,7 +18,7 @@
          {% endif %} 
        {% endfor %}  
      </div>
-   <div class="col-10 col-lg-3 border border-primary mb-3 service">
+   <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
       <h2 class="text-center">Barbe</h2>
        {% for service in services %}
          {% if service.type == "Barbe"%}
@@ -30,7 +30,7 @@
          {% endif %} 
        {% endfor %}  
      </div>
-   <div class="col-10 col-lg-3 border border-primary mb-3 service">
+   <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
       <h2 class="text-center">Coloration / Défrisage</h2>
        {% for service in services %}
          {% if service.type == "Coloration / Défrisage"%}
@@ -41,28 +41,32 @@
            <span>{{ service.text }}</span>  
          {% endif %} 
        {% endfor %}  
-     </div>               
+     </div>
+  </div>                    
 </section>
- {#   <div>{{ service.imageName }} <img src="{{ asset('image/' ~ service.imageName) }}"></div>
-        #}
 
-{% for image in images %}
 
-   {#  {% if image.category == "storefront" %}
+{# {% for image in images %}
+
+    {% if image.category == "storefront" %}
       <div><img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
-          {% endif %}  #}
+          {% endif %}  
 
         {% if image.category == "beardTrim" %}
 <div><img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
 
-    {% endif %} 
+    {% endif %}
 
 
 {#  <div>{{ image.ImageName }} <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
- #} {% endfor %}
-<div class="container-fluid infoContainer">
+  {% endfor %}#}
+
+
+        
+
+<div class="container-fluid infoContainer pt-5">
     <div class="row d-flex justify-content-evenly-sm ">
-        <div class="col-5 col-sm-2 col-md-2 col-lg-2 col-xl-1">
+        <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-1 fff">
             {% for openingHours in openingHours %}
                 <div>{{ openingHours.day }}</div>
             {% endfor %}
@@ -72,10 +76,22 @@
                 <div>{{ openingHours.open }}{{ openingHours.close }}</div>
             {% endfor %}
         </div>
+        <div class="col-12 col-sm-7 col-md-8 col-lg-2 col-xl-1 mt-3">
+          {% for info in informations %}
+                <div>
+                  <p>Prise de rendez-vous
+                    <a href="{{ info.phonenumber }}">{{ info.phonenumber }}</a>
+                  </p>
+                </div>
+            {% endfor %}
+        </div>
 
-        <div class="infoContainer_storefrontContainer my-3">
-{#           <img class="infoContainer_storefrontContainer_img" src="{{ asset('image/devanture.jpg') }}">
- #}        </div>
+        <div class="infoContainer_storefrontContainer col-8 my-3">
+          {% for info in informations %}
+            <p id="infoContainer_storefrontContainer_adress">{{ info.address }}</p>
+          <img class="infoContainer_storefrontContainer_img" src="{{ asset('image/devanture.jpg') }}" alt="{{ info.address }}">
+          {% endfor %} 
+        </div>
 
         <div class="infoContainer_mapContainer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.1924133156353!2d1.0875271850066959!3d49.44308023709414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0dd4f05221847%3A0x4e2697eda9580908!2sL&#39;atelier!5e0!3m2!1sfr!2sfr!4v1632235916170!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -91,7 +107,8 @@
       <img src="{{ asset('image/logo_Davines.png') }}" alt="logo Davines">
       <img src="{{ asset('image/logo_Reuzel.png') }}" alt="logo Reuzel">
     </div>
-<article>
+  </div>  
+</article>
 
 
 

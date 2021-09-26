@@ -63,12 +63,12 @@ class Image
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $area;
+    private $category;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $category;
+    private $subcategory;
 
 
     public function getId(): ?int
@@ -157,14 +157,14 @@ class Image
         return $this;
     }
 
-    public function getArea(): ?string
+    public function getsubcategory(): ?string
     {
-        return $this->area;
+        return $this->subcategory;
     }
 
-    public function setArea(?string $area): self
+    public function setsubcategory(?string $subcategory): self
     {
-        $this->area = $area;
+        $this->subcategory = $subcategory;
 
         return $this;
     }

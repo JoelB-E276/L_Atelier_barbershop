@@ -46,7 +46,7 @@ class ImageCrudController extends AbstractCrudController
                     'Logo Header' =>'headerLogo',
                     'Devanture' =>'storefront',
                     ]),
-            ChoiceField::new('area', 'Ordre d\'affichage')
+            ChoiceField::new('subcategory', 'Ordre d\'affichage')
                 ->autocomplete()
                 ->setChoices([
                     'Logo Header' =>'headerLogo',

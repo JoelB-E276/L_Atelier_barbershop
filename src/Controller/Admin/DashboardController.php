@@ -21,13 +21,13 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return $this->render('admin/dashboardCustom.html.twig');
+        return $this->render('admin/dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('L\'Atelier Barbershop');
+            ->setTitle('L\'Atelier Barbershop Rouen');
     }
 
     public function configureMenuItems(): iterable
