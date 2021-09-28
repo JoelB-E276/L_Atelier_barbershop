@@ -19,6 +19,13 @@
     font-weight: normal;
     font-style: normal;
 
+    font-family: 'DancingScript_Regular';
+    src: url('../font/DancingScript-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+
+  
+
 }
 body {
 	margin: 0;
@@ -40,31 +47,32 @@ body {
 /*################################*/
 /*############ HEADER ############*/
 /*################################*/
-
+#headerContainer{
+  background-color: rgb(170, 28, 28);
+} 
 #headerContainer_Logo{
-    background-color: black;
+    background-color: rgb(228, 220, 220);
     width: auto;
 }
 
 #headerContainer_Logo_Img{
-  width: 70vw;
+  width: 95vw;
 }
 
 .headerContainer_Chevron{
   height: 15vh;
 }
 
-@keyframes hover-me {
+@keyframes moveUpDown {
   100% { transform: translate3d(0, 25px, 0); }
 }
 .headerContainer_Chevron_Img{
-  margin: auto;
-  width: 5em;
-  height: 5em;
-  animation: hover-me .8s infinite ease-in-out alternate;
+  width: 1.5em;
+  height: 1.5em;
+  animation: moveUpDown .8s infinite ease-in-out alternate;
 }
-
-
+/* TAILLE EM A MODIFIER 
+ */
 
 
 /*################################*/
@@ -72,9 +80,17 @@ body {
 /*################################*/
 
 .footerContainer{
-    background-color: rgb(224, 228, 11);
-    height: 30vh;
-    
+    background-image: url('../../image/logofooter.png');
+    background-size: 25vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 25vh;
+}
+.footerContainer_Section{
+
+
+
 }
 
 
@@ -84,23 +100,51 @@ body {
 /*#################################*/
 
 #serviceContainer{
-font-size: 1.75rem;
-font-family: 'alexbrush-regular';
+font-size: 1.25rem;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+background-image: url('../../image/background/floor-1846849_1920.jpg');
+background-attachment: fixed;
 
 
 }
-
-
+.serviceContainer_Services{
+  border-width: 4px;
+  border-style: outset;
+  border-top-color: rgb(0, 0, 0);
+  border-bottom-color: rgb(255, 255, 255) ;
+  background-color: rgb(223, 223, 223);
+ /* background: -moz-linear-gradient(-45deg, #E1E1D3 0%, #F8FFFF 59%, #C8C1C1 100%);
+  background: -webkit-linear-gradient(-45deg, #E1E1D3 0%, #F8FFFF 59%, #C8C1C1 100%);
+  background: linear-gradient(135deg, #E1E1D3 0%, #F8FFFF 59%, #C8C1C1 100%);
+   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+ */ 
+  box-shadow: 13px 12px 29px -2px rgba(70, 69, 69, 0.71);
+  transition: all 1.2s ease-in-out;
+  height: 5vh;
+  overflow: hidden;
+}
+.serviceContainer_Services.containerGrow{
+  height: 40vh;
+                                                /*     MODIFER TAILLE ET TROUVER animation  
+                                                */
+}
 /*################################*/
 /*######## INFO_CONTAINER ########*/
 /*################################*/
+.infoContainer{
+  background-color: darkgrey;
+ 
+}
 .infoContainer_storefrontContainer{
   text-align: center;
+  
 }
 .infoContainer_storefrontContainer img{
   width: 70vw;
  }
 
+ .fff{
+ }
 /*################################*/
 /*########## MAP GOOGLE ##########*/
 /*################################*/
@@ -141,31 +185,30 @@ font-family: 'alexbrush-regular';
 
 
 @media screen and (min-width:481px) and (max-width: 768px){
-#headerContainer_Logo{
-   background-color: darkblue;
-  }
+
   
 }
 
 @media screen and (min-width:769px) and (max-width:1024px){
-#headerContainer_Logo{
-  background-color: white;
-
+  #headerContainer_Logo_Img{
+  width: 60vw;
   }
+  .infoContainer_storefrontContainer img{
+    width: 20vw;
+   }
 
 } 
 @media screen and (min-width:1024px){
-
-#headerContainer{
-  background-color: blue;
-}  
-#headerContainer_Logo{
-  background-color: red;
-
+  #headerContainer_Logo_Img{
+    width: 45vw;
   }
- #headerContainer_Logo_Img{
-    width: 50vw;
-  }
+  .infoContainer_storefrontContainer img{
+    width: 15vw;
+  }  
+  #serviceContainer{
+    height: 60vh;
+    
+  }  
   
 }   
  

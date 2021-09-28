@@ -1,10 +1,80 @@
 {% extends "@EasyAdmin/layout.html.twig" %}
 
 {% block content %}
+<div>
+    <div>
+        <h2 class="text-decoration-underline">Image</h2>
+    </div>
+    <p><b>Pour un chargement plus rapide des pages web et le référencement du site le poids des images ne peut être supérieur à 200k</b></p>
+    <p>Il existe des sites du type  <a href="https://www.websiteplanet.com/fr/webtools/imagecompressor/"> websiteplanet.com</a> pour compresser les images</p>
 
+    <h4>Ajouter une image</h4>
 
+        <ol>
+            <li> Cliquer sur -><i class"fst-italic" style="color:blue">Add Image</i></li>
+            <li> Choisir une image -><i class"fst-italic">Choose File </i>&#8657;</li>
+            <li> Choisir la catégorie -><i class"fst-italic">Catégorie</i></li>
+            <li> Choisir l'emplacement dans la catégorie -><i class"fst-italic">Ordre d'affichage</i></li>
+            <li> Remplir le <i class"fst-italic">Champ HTML "ALT"</i> avec une très courte description de l'image (référencement naturel)</li>
+            <li> Cliquer sur -><i class"fst-italic" style="color:blue">Create</i></li>
+        </ol>
 
+        <h4>Modifier une image</h4>
+        <ol>
+            <li> Cliquer sur -> ... puis <i class"fst-italic" style="color:blue">Edit</i></li>
+            <li> Choisir la catégorie -><i class"fst-italic">Catégorie</i></li>
+            <li> Choisir l'ordre d'affichage dans la catégorie -><i class"fst-italic">Ordre d'affichage</i></li>
+            <li> Remplir le <i class"fst-italic">Champ HTML "ALT"</i> avec une très courte description de l'image (référencement naturel)</li>
+            <li> Cliquer sur -><i class"fst-italic" style="color:blue">Save changes</i></li>
+        </ol>
 
+        <h4>Supprimer une image</h4>
+        <ol>
+            <li> Cliquer sur -> ... puis <i class"fst-italic" style="color:red">Delete</i></li>
+                <ul>
+                    <li><i class"fst-italic" style="color:red"> ATTENTION SUPPRESSION DEFINITIVE</i></li>
+                </ul>
+            <li> Valider une seconde fois -><i class"fst-italic" style="color:red">Delete</i></li>
+        </ol>
+
+        <div>
+        <h2 class="text-decoration-underline">Comptes utilisateurs</h2>
+    </div>
+    <p><b><i class"fst-italic" style="color:red">Il est impératif de conserver constamment un accès à un compte avec le rôle "SUPER_ADMIN"</b></i></p>
+
+    <h4>Ajouter un compte</h4>
+
+        <ol>
+            <li> Aller sur <a href="https://www.latelierrouen/registerFormWebsite76"> registerFormWebsite76</a> pour créer un compte</li>
+            <li> Revenir dans la page d'adminstration</li>
+            <li> Choisir le compte pour lui attribuer les droits -><i class"fst-italic">Edit</i></li>
+            <li> Choisir le <i class"fst-italic">"Role"</i></li>
+                <ul>
+                    <li>Le rôle "SUPER_ADMIN" est le <b><i class"fst-italic" style="color:red">SEUL</i></b> à pouvoir modifier / supprimer les comptes et permet également les modifications sur l'emsemble du site </li>
+                    <li>Le rôle "ADMIN" permet les modifications sur l'emsemble du site mais n'a pas accès aux comptes utilisateurs</li>
+                    <li>Le rôle "USER" ne donne aucun accès, c'est un rôle temporaire avant qu'un "SUPER_ADMIN" lui donne des droits</li>
+                </ul>
+            <li> Cliquer sur -><i class"fst-italic" style="color:blue">Save changes</i></li>
+        </ol>
+
+        <h4>Modifier un compte</h4>
+        <ol>
+            <li> Cliquer sur -> ... puis <i class"fst-italic" style="color:blue">Edit</i></li>
+            <li> Modifier "l'identifiant" (nécessaire au login) ou le "Rôle"</li>
+            <li> Cliquer sur -><i class"fst-italic" style="color:blue">Save changes</i></li>
+        </ol>
+
+        <h4>Supprimer un compte</h4>
+        <ol>
+            <li> Cliquer sur -> ... puis <i class"fst-italic" style="color:red">Delete</i></li>
+                <ul>
+                    <li><i class"fst-italic" style="color:red"> ATTENTION SUPPRESSION DEFINITIVE</i></li>
+                </ul>
+            <li> Valider une seconde fois -><i class"fst-italic" style="color:red">Delete</i></li>
+        </ol>
+        
+    </div>
+</div>
 
 
 

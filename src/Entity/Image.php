@@ -60,6 +60,16 @@ class Image
      */
     private $imageAlt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subcategory;
+
 
     public function getId(): ?int
     {
@@ -143,6 +153,30 @@ class Image
     public function setImageAlt(?string $imageAlt): self
     {
         $this->imageAlt = $imageAlt;
+
+        return $this;
+    }
+
+    public function getsubcategory(): ?string
+    {
+        return $this->subcategory;
+    }
+
+    public function setsubcategory(?string $subcategory): self
+    {
+        $this->subcategory = $subcategory;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?string $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

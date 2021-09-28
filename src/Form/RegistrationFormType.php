@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,14 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username',)
+            ->add('username', TextType::class, [
+                'constraints' => new Length([
+                    'min' => 6,
+                    'minMessage' => 'Votre identifiant doit comporter au moins {{ limit }} caractères',
+                ]),
+                'label' => "Identifiant",
+                ],
+             )
             
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

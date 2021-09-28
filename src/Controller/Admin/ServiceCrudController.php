@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -29,7 +30,6 @@ class ServiceCrudController extends AbstractCrudController
             TextField::new('title', 'Titre'),
             TextField::new('text', 'Texte'),
             TextField::new('price', 'Tarif'),
-            TextField::new('type', 'Type de prestation'),
           /*  ImageField::new('imageName', 'Image')->onlyOnIndex()->setBasePath('/image'),
              ImageField::new('image')
             ->setUploadDir('public/image')
@@ -48,26 +48,12 @@ class ServiceCrudController extends AbstractCrudController
            
         ];
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Prestations')
+        ;
+    }
     
 }
- # app/src/controller/Admin/UsersCrudController.php
-   /* public function configureFields(string $pageName): iterable
-    {
-        return [ChoiceField::new('roles')
-                ->setLabel("Rol")
-                ->setChoices([ 
-                        'SUPERADMIN' => 'ROLE_ADMIN',
-                        'ADMIN' => 'ROLE_MANAGER',
-                        ])      
-                        ->allowMultipleChoices(false)
-                        ->renderExpanded(true)
-                        ->setFormType(RoleType::class)]
-    }
-
-    ChoiceField::new('roles', 'Roles')
-                    ->allowMultipleChoices()
-                    ->autocomplete()
-                    ->setChoices([  'User' => 'ROLE_USER',
-                                    'Admin' => 'ROLE_ADMIN',
-                                    'SuperAdmin' => 'ROLE_SUPER_ADMIN']
-                                ) */
