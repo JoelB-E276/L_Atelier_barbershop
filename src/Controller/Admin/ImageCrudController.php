@@ -41,22 +41,22 @@ class ImageCrudController extends AbstractCrudController
                     'Galerie Barbe' => 'beardGalery',
                     'Galerie Femme' => 'ladiesGalery',
                     'Galerie Homme' => 'gentsGalery',
-                    'Salon' => 'store',
+                    'Salon' => 'saloon',
                     'Les Marques' => 'brand',
                     'Logo Header' =>'headerLogo',
+                    'Logo Navbar' =>'navLogo',
+                    'Logo Footer' =>'footererLogo',
                     'Devanture' =>'storefront',
                     ]),
             ChoiceField::new('subcategory', 'Ordre d\'affichage')
                 ->autocomplete()
                 ->setChoices([
-                    'Logo Header' =>'headerLogo',
-                    'Devanture' =>'storefront',
-                    'Barbe' => 'beardTrim',
-                    'Coupe Femme' =>'ladiesCut',
-                    'Coupe Homme' => 'gentsCut',
-                    'Galerie Barbe' => 'beardGalery',
+                    '1' =>'first',
+                    '2' =>'second',
+                    '3' => 'third',
+                    'A la suite' => 'next',
                     ]),
-            TextField::new('imageAlt', 'Champ HTML "ALT"'),
+            TextField::new('imageAlt', 'Attribut HTML "ALT"'),
                                           
            ];
     }

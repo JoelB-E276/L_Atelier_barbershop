@@ -1,40 +1,10 @@
 @font-face {
-  font-family: 'open_sans_condensedbold';
-    src: url('../../font/OpenSans-CondBold-webfont.woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto Condensed', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
 
-  font-family: 'open_sanscondensed_light';
-    src: url('../font/OpenSans-CondLight-webfont.woff');
-    font-weight: normal;
-    font-style: normal;
-
-    font-family: 'open_sansCnLtIt';
-    src: url('../font/OpenSans-CondLightItalic-webfont.woff');
-    font-weight: normal;
-    font-style: normal;
-
-    font-family: 'alexbrush-regular';
-    src: url('../font/alexbrush-regular-webfont.woff2');
-    font-weight: normal;
-    font-style: normal;
-
-    font-family: 'DancingScript_Regular';
-    src: url('../assets/font/DancingScript-Regular.otf');
-    font-weight: normal;
-    font-style: normal;
-
-    font-family: 'roboto_condensend_Regular';
-    src: url('../../assets/font/roboto_condensed_regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-
-    font-family: 'roboto_condensend_light';
-    src: url('../font/roboto_condensed_light.ttf');
-    font-weight: normal;
-    font-style: normal;
-
-  
+    font-family:'Open Sans Condensed', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+    
 
 }
 body {
@@ -59,7 +29,8 @@ body {
 /*############ HEADER ############*/
 /*################################*/
 .navbar-dark {
-  background-color: #910000;
+  background-color: #000000;
+  opacity: 0.6;
 }
 #headerContainer{
   background-color: rgb(0, 0, 0);
@@ -109,13 +80,13 @@ body {
 
 #serviceContainer{
 font-size: 1.25rem;
-font-family:'Noto Sans';
-background-image: url('../../image/background/floor-1846849_1920.jpg');
+font-family:'Open Sans Condensed';
+background-image: url('../../image/background/background-tree-wood-boards-texture-wooden-background-1370489-pxhere.com.jpg');
 background-attachment: fixed;
 
 }
 .serviceContainer_Services{
-  border-width: 4px;
+  border-width: 2px;
   color: rgb(255, 255, 255);
   border-style: outset;
   border-top-color: rgb(0, 0, 0);
@@ -135,7 +106,8 @@ background-attachment: fixed;
 /*######## INFO_CONTAINER ########*/
 /*################################*/
 .infoContainer{
-  background-color: rgb(82, 139, 224);
+  background-image: url('../../image/background/stone-wall-background-13735546260Mb.jpg');
+  background-size: contain;
  
 }
 .infoContainer_storefrontContainer{
@@ -161,6 +133,9 @@ background-attachment: fixed;
 /*################################*/
 /*########## PORTFOLIO ###########*/
 /*################################*/
+#portfolioContainer{
+  background-image: url('../../image/background/rasage-traditionnel-ecologique-economique-compressor1.jpg');
+}
 
 .portfolio_ClientStyle_Img{
   max-width: 80vw;
@@ -178,14 +153,17 @@ background-attachment: fixed;
 /*#################################*/
 
 .brandContainer{
-  background-color: cadetblue;
-  height: 250vh;
+  font-family:'Roboto Condensed';
+  color: #000000;
+  background-color: rgb(22, 200, 206);
+  height: 30vh;
   }
   
 .brandContainer img{
-    width: 15vw;
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 15vw;
+  max-height: 15vh;
+  width: auto;
+  height: auto;
 }
                                 /*###################################*/
                                 /*########## MEDIA QUERIES ##########*/

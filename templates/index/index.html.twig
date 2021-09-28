@@ -3,8 +3,9 @@
 {% block title %}l'Atelier Barbershop Rouen{% endblock %}
 
 {% block body %}
-
-<section class="container-fluid  py-5" id="serviceContainer">
+                                              {# ###### SERVICE CONTAINER #####
+                                              #}
+ <section class="container-fluid  py-5" id="serviceContainer">
   <div class="row d-flex justify-content-around">
     <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
       <h2 class="text-center">Coupe</h2>
@@ -45,26 +46,10 @@
   </div>                    
 </section>
 
+                                                      {# ###### INFORMATION CONTAINER #####
+                                                      #}
 
-{# {% for image in images %}
-
-    {% if image.category == "storefront" %}
-      <div><img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
-          {% endif %}  
-
-        {% if image.category == "beardTrim" %}
-<div><img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
-
-    {% endif %}
-
-
-{#  <div>{{ image.ImageName }} <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.ImageAlt }}"></div>
-  {% endfor %}#}
-
-
-{#         #########TABLEAU BOOTSTRAP???#########
- #}
-<div class="container-fluid infoContainer pt-5">
+<div class="container-fluid infoContainer pt-5" id="informationsContainer">
     <div class="row d-flex justify-content-evenly-sm ">
         <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-1">
             {% for openingHours in openingHours %}
@@ -92,8 +77,9 @@
         </div>
      </div>           
 </div>
-
-<div class="container-fluid portfolio text-xs-center px-lg-3 px-xl-5">
+                                                            {# ###### PORTFOLIO CONTAINER #####
+                                                            #}
+<div class="container-fluid portfolio text-center px-lg-3 px-xl-5" id="portfolioContainer">
   <div class="row">
     <div class="my-4 ">
       <h2 class="portfolio_Title text-center my-3">Barbe<h2>
@@ -107,7 +93,7 @@
     </div>
     <div class="my-4">
       <h2 class="portfolio_Title text-center my-3">Coupe Femme<h2>
-      <div class="text-md-end">
+      <div class="">
       {% for image in images %}
         {% if image.category == "ladiesCut" %}
           <img class="portfolio_ClientStyle_Img mb-1 " src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
@@ -123,13 +109,16 @@
           <img class="portfolio_ClientStyle_Img mb-1" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
-      </div
+      </div>
     </div>
   </div>
 </div>
 
+                                                            {# ###### BRAND CONTAINER #####
+                                                            #}
+
 <article class="container brandContainer">
-  <h3 class="text-center my-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
+  <h3 class="text-center py-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
   <div class="d-flex justify-content-evenly">
     <div class="text-center my-2">
       <img src="{{ asset('image/logo_Keune.png') }}" alt="logo keune">
