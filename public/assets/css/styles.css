@@ -5,8 +5,8 @@
     font-family:'Open Sans Condensed', sans-serif;
     src: url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
     
-
-}
+ 
+} 
 body {
 	margin: 0;
 	display: flex;
@@ -15,6 +15,7 @@ body {
   font-size: 1rem;
   
 }
+
 .content{
 	flex: 1; /*#################################################     EXPLICATION   ############################*/
 }
@@ -30,7 +31,10 @@ body {
 /*################################*/
 .navbar-dark {
   background-color: #000000;
-  opacity: 0.6;
+  opacity: 0.8;
+  font-family:'Open Sans Condensed';
+  color: white;
+
 }
 #headerContainer{
   background-color: rgb(0, 0, 0);

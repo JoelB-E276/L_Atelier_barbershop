@@ -27,7 +27,7 @@ class Information
     private $address;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string",length=255, nullable=true)
      */
     private $postalCode;
 
