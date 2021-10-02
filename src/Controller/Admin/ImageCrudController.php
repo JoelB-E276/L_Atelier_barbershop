@@ -17,7 +17,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 class ImageCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -38,8 +43,8 @@ class ImageCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setBasePath('/image'),
             AssociationField::new('categories'),
+                
             
-              
             
             /* ChoiceField::new('category', 'Catégorie')
                 ->autocomplete()

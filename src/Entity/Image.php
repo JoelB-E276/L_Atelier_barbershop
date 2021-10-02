@@ -65,12 +65,13 @@ class Image
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $category;
+    private $subcategory;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=Category::class)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $subcategory;
+    private $categories;
 
 
     public function getId(): ?int
@@ -171,14 +172,14 @@ class Image
         return $this;
     }
 
-    public function getCategory(): ?string
+    public function getCategories(): ?category
     {
-        return $this->category;
+        return $this->categories;
     }
 
-    public function setCategory(?string $category): self
+    public function setCategories(?category $categories): self
     {
-        $this->category = $category;
+        $this->categories = $categories;
 
         return $this;
     }

@@ -50,32 +50,34 @@
                                                         #}
 
   <div class="container-fluid infoContainer pt-5" id="informationsContainer">
-      <div class="row d-flex justify-content-evenly-sm ">
-          <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-1">
-              {% for openingHours in openingHours %}
-                  <div>{{ openingHours.day }}</div>
-              {% endfor %}
+    <div class="row d-flex justify-content-evenly-sm ">
+      <div class="col-9 col-sm-5 col-md-4 col-lg-4 col-xl-3 mb-2 infoContainer_Opening ">
+        {% for openingHours in openingHours %}
+          <div>
+            <span class="infoContainer_Opening_Day">{{ openingHours.day }}</span>
+            <span class="infoContainer_Opening_OpenClose">{{ openingHours.open }}{{ openingHours.close }}</span><br>
           </div>
-          <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2">
-              {% for openingHours in openingHours %}
-                  <div>{{ openingHours.open }}{{ openingHours.close }}</div>
-              {% endfor %}
+        {% endfor %}
           </div>
+        {# <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mb-2 infoContainer_Opening">
+          {% for openingHours in openingHours %}
+            <div>{{ openingHours.open }}{{ openingHours.close }}</div>
+          {% endfor %}
+        </div> #}
+      <div class="infoContainer_storefrontContainer col-sm-7 col-md-8 col-lg-4 col-xl-4">
+        {% for image in images %}
+          {% for info in informations %}
+            {% if image.categories == "Devanture" %}
+              <img class="infoContainer_storefrontContainer_img img-fluid mb-2" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ info.address }}">
+            {% endif %}
+          {% endfor %}    
+        {% endfor %} 
+      </div>
 
-          <div class="infoContainer_storefrontContainer col-sm-7 col-md-8 col-lg-4 col-xl-4">
-            {% for image in images %}
-            {% for info in informations %}
-              {% if image.category == "storefront" %}
-            <img class="infoContainer_storefrontContainer_img img-fluid mb-2" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ info.address }}">
-              {% endif %}
-            {% endfor %}    
-            {% endfor %} 
-          </div>
-
-          <div class="col-lg-4 col-xl-4 infoContainer_mapContainer ">
-            <iframe class="infoContainer_mapContainer_maps " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.1924133156353!2d1.0875271850066959!3d49.44308023709414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0dd4f05221847%3A0x4e2697eda9580908!2sL&#39;atelier!5e0!3m2!1sfr!2sfr!4v1632235916170!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-      </div>           
+      <div class="col-lg-4 col-xl-4 infoContainer_mapContainer ">
+        <iframe class="infoContainer_mapContainer_maps " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.1924133156353!2d1.0875271850066959!3d49.44308023709414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0dd4f05221847%3A0x4e2697eda9580908!2sL&#39;atelier!5e0!3m2!1sfr!2sfr!4v1632235916170!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>           
   </div>
                                                             {# ###### PORTFOLIO CONTAINER #####
                                                             #}
@@ -85,7 +87,7 @@
       <h2 class="portfolio_Title text-center my-3">Barbe<h2>
       <div class=" portfolioContainer_ClientStyle ">
       {% for image in images %}
-        {% if image.category == "beardTrim" %}
+        {% if image.categories == "Barbe" %}
           <img class="portfolio_ClientStyle_Img mb-1" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
@@ -95,7 +97,7 @@
       <h2 class="portfolio_Title text-center my-3">Coupe Femme<h2>
       <div class="">
       {% for image in images %}
-        {% if image.category == "ladiesCut" %}
+        {% if image.category == "Coupe Femme" %}
           <img class="portfolio_ClientStyle_Img mb-1 " src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
@@ -105,7 +107,7 @@
       <h2 class="portfolio_Title text-center my-3">Coupe Homme<h2>
       <div>
       {% for image in images %}
-        {% if image.category == "gentsCut" %}
+        {% if image.category == "Coupe Homme" %}
           <img class="portfolio_ClientStyle_Img mb-1" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
@@ -121,9 +123,11 @@
   <h3 class="text-center py-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
   <div class="d-flex justify-content-evenly">
     <div class="text-center my-2">
-      <img src="{{ asset('image/logo_Keune.png') }}" alt="logo keune">
-      <img src="{{ asset('image/logo_Davines.png') }}" alt="logo Davines">
-      <img src="{{ asset('image/logo_Reuzel.png') }}" alt="logo Reuzel">
+    {% for image in images %}
+      {% if image.categories == "Les Marques" %}
+        <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" >
+      {% endif %}
+    {% endfor %} 
     </div>
   </div>  
 </article>

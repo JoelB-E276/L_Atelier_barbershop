@@ -11,7 +11,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            
         {% endblock %}
     </head>
     <body>
@@ -26,9 +26,7 @@
                     {{ form_start(registrationForm) }}
                         
                             {{ form_row(registrationForm.username) }}
-                            {{ form_row(registrationForm.plainPassword, {
-                                    label: 'Password'
-                            }) }}
+                            {{ form_row(registrationForm.plainPassword) }}
                             <button class="btn btn-primary my-3"type="submit" class="btn">Valider</button>
 
                     {{ form_end(registrationForm) }}
@@ -36,3 +34,27 @@
                 </section>  
             
             {% endblock %}
+
+
+
+
+
+
+
+
+{#               <section class="container">
+                    <div class="text-center">
+                        <h1 class="my-5">Création de compte</h1>
+                    </div>
+                        
+                    {{ form_start(registrationForm) }}
+                        
+                            {{ form_row(registrationForm.username) }}
+                            {{ form_row(registrationForm.plainPassword, {
+                                    label: 'Password'
+                            }) }}
+                            <button class="btn btn-primary my-3"type="submit" class="btn">Valider</button>
+
+                    {{ form_end(registrationForm) }}
+               
+                </section>   #}

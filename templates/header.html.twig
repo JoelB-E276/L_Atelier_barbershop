@@ -36,7 +36,11 @@
 </nav>
 <header class="container-fluid" id="headerContainer">
     <div class="text-center" id="headerContainer_Logo">
-        <img src="{{ asset('image/logo.png') }}" alt="logo l'Atelier Rouen" id="headerContainer_Logo_Img" >
+    {% for image in images %}
+      {% if image.categories == "Logo Header" %}
+        <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" id="headerContainer_Logo_Img" >
+      {% endif %}
+    {% endfor %} 
     </div>
     <div class="text-center headerContainer_Chevron">
         <a href="#serviceContainer"><img class="headerContainer_Chevron_Img rounded  mx-auto d-block d-none d-sm-block"src="{{ asset('assets/icons/chevron.png')}}"></a>

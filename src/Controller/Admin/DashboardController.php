@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Admin;
+use App\Entity\Category;
 use App\Entity\Image;
 use App\Entity\Service;
 use App\Entity\OpeningHours;
@@ -13,10 +14,17 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
+
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 class DashboardController extends AbstractDashboardController
 {
     /**
+     * 
      * @Route("/adminWebsitelAtelierRouen76", name="admin")
      */
     public function index(): Response
@@ -38,6 +46,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Horaires', 'far fa-clock', OpeningHours::class);
         yield MenuItem::linkToCrud('Coordonnées', 'fas fa-info', Information::class);
         yield MenuItem::linkToCrud('Comptes Utilisateurs', 'fas fa-user-lock', Admin::class)->setPermission('ROLE_SUPER_ADMIN');
+        yield MenuItem::linkToCrud('Catégorie', 'far fa-list-alt', Category::class)->setPermission('ROLE_SUPER_ADMIN');;
+
 
 
     }
