@@ -1,7 +1,7 @@
 <footer class="container-fluid footerContainer">
     <div class="footerContainer_Section">
         <div class="text-center"> 
-            <div class="row d-flex justify-content-evenly mt-3 mt-lg-5">
+            <div class="row  mt-3 mt-lg-5">
                 <div class="col-6">
                     <a href="{{'https://instagram.com/latelier_rouen2.0?utm_medium' }}" target="_blank"><img src="{{ asset('assets/icons/instagram.svg') }}" alt="Notre Instagram" width="45" height="45" ></a>
                 </div>
@@ -13,12 +13,13 @@
 
         <div class="text-center my-4">
             {% for info in informations %}
-            <div class="row d-flex justify-content-evenly">
+            <div class="row">
                 <div class="col-6">
                     <a href="tel:{{ info.PhoneNumberLink }}"><img src="{{ asset('assets/icons/mobile-alt-solid.svg') }}" alt="Numéro de téléphone" width="45" height="45" ></a><span class="d-none d-lg-block">{{ info.phonenumber }}</span>
                 </div>
                 <div class="col-6">
-                    <a href="#infoContainer_storefrontContainer_adress"><img src="{{ asset('assets/icons/map-marker-alt-solid.svg') }}" alt="Notre adresse" width="45" height="45"></a><adress class="d-none d-lg-block">{{ info.address }} {{ info.postalCode}} {{ info.city }}</adress>
+                    <a href="#informationsContainer"><img src="{{ asset('assets/icons/map-marker-alt-solid.svg') }}" alt="Notre adresse" width="45" height="45"></a>
+                    <adress class="d-none d-lg-block">{{ info.address }} {{ info.postalCode}} {{ info.city }}</adress>
                 </div>
             </div>
         </div>            

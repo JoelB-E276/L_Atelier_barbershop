@@ -30,7 +30,6 @@ class ImageCrudController extends AbstractCrudController
         return Image::class;
     }
 
-    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -40,54 +39,25 @@ class ImageCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->OnlyWhenCreating()
                 ->setRequired(true),
+             /*Create thumbnail after uploalding */
             ImageField::new('imageName', 'Image')
                 ->onlyOnIndex()
                 ->setBasePath('/image'),
             AssociationField::new('category', 'Categorie')
                 ->setRequired(true),
-                
-                
-            
-            
-            /* ChoiceField::new('category', 'Catégorie')
-                ->autocomplete()
-                ->setChoices([ 
-                    'Barbe' => 'beardTrim',
-                    'Coupe Femme' =>'ladiesCut',
-                    'Coupe Homme' => 'gentsCut',
-                    'Galerie Barbe' => 'beardGalery',
-                    'Galerie Femme' => 'ladiesGalery',
-                    'Galerie Homme' => 'gentsGalery',
-                    'Salon' => 'saloon',
-                    'Les Marques' => 'brand',
-                    'Logo Header' =>'headerLogo',
-                    'Logo Navbar' =>'navLogo',
-                    'Logo Footer' =>'footererLogo',
-                    'Devanture' =>'storefront',
-                    ]),
-            ChoiceField::new('subcategory', 'Ordre d\'affichage')
-                ->autocomplete()
-                ->setChoices([
-                    '1' =>'first',
-                    '2' =>'second',
-                    '3' => 'third',
-                    'A la suite' => 'next',
-                    ]), */
             TextField::new('imageAlt', 'Attribut HTML "ALT"'),
                                           
            ];
     }
-
+    /* Function to change name on pages */
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
             ->setPageTitle('new', 'Ajouter une image')
             ->setPageTitle('edit', 'Modifier')
-
-
         ;
     }
-
+    /*Function to add Category Entity in form */
     public function configureFilters(Filters $filters): Filters
     {
         return $filters

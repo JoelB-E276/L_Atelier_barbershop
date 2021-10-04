@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto Condensed', sans-serif;
     src: url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
 
-    font-family:'Open Sans Condensed';
+    font-family:'Open Sans Condensed', sans-serif;
     src: url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
     
  
@@ -42,7 +42,7 @@ body {
 }
 
 #headerContainer_Logo_Img{
-  width: 95vw;
+  width: 65vw;
 }
 
 .headerContainer_Chevron{
@@ -64,7 +64,7 @@ body {
 /*################################*/
 
 .footerContainer{
-    background-image: url('../../image/logofooter.png');
+    background-image: url('../../image/background/logofooter.png');
     background-size: 25vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -95,9 +95,11 @@ background-attachment: fixed;
   transition: all 1.2s ease-in-out;
   overflow: hidden;
 }
+
 .serviceContainer_Services.containerGrow{
-   transform: translateX(200px);
-                                                 /*     MODIFER TAILLE ET TROUVER animation  
+
+  transform: translateX(200px);
+                                              /*     MODIFER TAILLE ET TROUVER animation  
                                                 */
 }
 /*################################*/

@@ -1,21 +1,24 @@
+/*Html element function serviceAnim*/
 const services = document.getElementsByClassName('serviceContainer_Services');
 const headerImg = document.getElementById('headerContainer_Logo_Img');
-
+let headerImg_Height = headerImg.clientHeight;
+console.log(services);
+/*Html element function showNavbar */
 const headerContainer = document.getElementById('headerContainer');
 const hiddenNav = document.getElementById('hiddenNavbar');
-let headerImg_Height = headerImg.clientHeight;
 let header_Height = headerContainer.clientHeight;
 
-hiddenNav.style.display = 'none';
 
 /* ADD and REMOVE class on servicesContainer*/
-window.addEventListener('scroll', () =>{
+window.addEventListener('scroll', function serviceAnim(){
+    /*Get the scroll height and compar with header img height */
     if(window.scrollY > headerImg_Height){
+        /*Loop on HTLM Collection for add class on each element*/
         for(let i = 0; i < services.length ; i++){
             services[i].classList.add('containerGrow');
         }
     }
-    else{
+    else{/*Loop on HTLM Collection for remove class on each element*/
         for(let i = 0; i < services.length ; i++){
             services[i].classList.remove('containerGrow');
         }
@@ -23,12 +26,15 @@ window.addEventListener('scroll', () =>{
 }); 
 
 
-/*  AJOUTER TRANSITION SUR LA NAV*/
+                                                        /*  AJOUTER TRANSITION SUR LA NAV*/
+hiddenNav.style.display = 'none';
 
-window.addEventListener('scroll', () =>{
+/* Function for show or hide navbar*/
+window.addEventListener('scroll', function showNavbar(){
+    /*Get the scroll height and compar with header height */
     if(window.scrollY > header_Height){
-/*         hiddenNav.style.display.transition = 'all 0.5sw';
- */        hiddenNav.style.display = 'block';
+        /*      Change navbar display   */ 
+        hiddenNav.style.display = 'block';
     }
     else{
         hiddenNav.style.display = 'none'
