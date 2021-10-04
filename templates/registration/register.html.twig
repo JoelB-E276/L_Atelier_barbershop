@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
@@ -11,7 +12,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            
         {% endblock %}
     </head>
     <body>
@@ -26,6 +27,37 @@
                     {{ form_start(registrationForm) }}
                         
                             {{ form_row(registrationForm.username) }}
+                            <div class=" text-center mb-3">
+                                <p>Votre mot de passe doit contenir au minimum:</p>
+                                <span class="alert alert-danger" id="lowercase">1 minuscule</span>
+                                <span class="alert alert-danger" id="uppercase">1 majuscule</span>
+                                <span class="alert alert-danger" id="number">1 chiffre</span>
+                                <span class="alert alert-danger" id="length">8 caratères</span>
+                            </div>
+                            {{ form_row(registrationForm.plainPassword) }}
+                            <button class="btn btn-primary my-3" type="submit" id="button">Valider</button>
+
+                    {{ form_end(registrationForm) }}
+                </section>  
+           
+            {% endblock %}
+
+
+
+
+
+    <script src="{{ asset('assets/js/password.js') }}"></script>
+
+
+
+{#               <section class="container">
+                    <div class="text-center">
+                        <h1 class="my-5">Création de compte</h1>
+                    </div>
+                        
+                    {{ form_start(registrationForm) }}
+                        
+                            {{ form_row(registrationForm.username) }}
                             {{ form_row(registrationForm.plainPassword, {
                                     label: 'Password'
                             }) }}
@@ -33,6 +65,4 @@
 
                     {{ form_end(registrationForm) }}
                
-                </section>  
-            
-            {% endblock %}
+                </section>   #}

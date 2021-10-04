@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top " id="hiddenNavbar">
+<nav class="navbar navbar-expand-md navbar-dark sticky-top " id="hiddenNavbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Atelier</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,15 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" href="#serviceContainer">Prestations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link active" href="#informationsContainer">Nous situer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link active" href="#portfolioContainer">Réalisation</a>
         </li>
-        <li class="nav-item dropdown">
+        {# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown link
           </a>
@@ -24,21 +24,24 @@
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
+        </li> #}
       </ul>
     </div>
       {% for info in informations %}
-      <span class="navbar-text"><a href="tel:{{ info.phonenumber }}">             
+      <span class="navbar-text"><a href="tel:{{ info.PhoneNumberLink }}" class="text-decoration-none"></a></span>             
         {{ info.phonenumber }}
       {% endfor %}  
-      </span></a>
   </div>
 </nav>
 <header class="container-fluid" id="headerContainer">
     <div class="text-center" id="headerContainer_Logo">
-        <img src="{{ asset('image/logo.png') }}" alt="logo l'Atelier Rouen" id="headerContainer_Logo_Img" >
+    {% for image in images %}
+      {% if image.category == "Logo Header" %}
+        <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" id="headerContainer_Logo_Img" >
+      {% endif %}
+    {% endfor %} 
     </div>
     <div class="text-center headerContainer_Chevron">
-        <a href="#serviceContainer"><img class="headerContainer_Chevron_Img rounded  mx-auto d-block d-none d-sm-block"src="{{ asset('assets/icons/chevron.png')}}"></a>
+        <a href="#serviceContainer"><img src="{{ asset('assets/icons/chevron.png')}}" class="headerContainer_Chevron_Img rounded mx-auto d-block d-none d-sm-block" alt="Chevron vers le bas"></a>
     </div> 
 </header>

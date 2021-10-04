@@ -7,8 +7,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
+/**
+ * @IsGranted("ROLE_SUPER_ADMIN")
+ */
 class AdminCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

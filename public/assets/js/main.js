@@ -1,5 +1,6 @@
 const services = document.getElementsByClassName('serviceContainer_Services');
 const headerImg = document.getElementById('headerContainer_Logo_Img');
+
 const headerContainer = document.getElementById('headerContainer');
 const hiddenNav = document.getElementById('hiddenNavbar');
 let headerImg_Height = headerImg.clientHeight;
@@ -23,7 +24,7 @@ window.addEventListener('scroll', () =>{
 
 
 /*  AJOUTER TRANSITION SUR LA NAV*/
-console.log(hiddenNav);
+
 window.addEventListener('scroll', () =>{
     if(window.scrollY > header_Height){
 /*         hiddenNav.style.display.transition = 'all 0.5sw';
@@ -33,4 +34,3 @@ window.addEventListener('scroll', () =>{
         hiddenNav.style.display = 'none'
     }
 });
-

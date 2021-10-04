@@ -22,32 +22,37 @@ class Information
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $address;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string",length=255, nullable=false)
      */
     private $postalCode;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $phoneNumber;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $phoneNumberLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $siret;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $city;
 
@@ -90,6 +95,18 @@ class Information
     public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getPhoneNumberLink(): ?string
+    {
+        return $this->phoneNumberLink;
+    }
+
+    public function setPhoneNumberLink(?string $phoneNumberLink): self
+    {
+        $this->phoneNumberLink = $phoneNumberLink;
 
         return $this;
     }
