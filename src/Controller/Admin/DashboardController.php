@@ -48,8 +48,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Comptes Utilisateurs', 'fas fa-user-lock', Admin::class)->setPermission('ROLE_SUPER_ADMIN');
         yield MenuItem::linkToCrud('Catégorie', 'far fa-list-alt', Category::class)->setPermission('ROLE_SUPER_ADMIN');;
 
-
-
     }
 
     

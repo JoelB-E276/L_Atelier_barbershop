@@ -58,20 +58,15 @@ class Image
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $imageAlt;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subcategory;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Category::class)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $categories;
+    private $category;
 
 
     public function getId(): ?int
@@ -160,26 +155,14 @@ class Image
         return $this;
     }
 
-    public function getsubcategory(): ?string
+    public function getCategory(): ?category
     {
-        return $this->subcategory;
+        return $this->category;
     }
 
-    public function setsubcategory(?string $subcategory): self
+    public function setCategory(category $category): self
     {
-        $this->subcategory = $subcategory;
-
-        return $this;
-    }
-
-    public function getCategories(): ?category
-    {
-        return $this->categories;
-    }
-
-    public function setCategories(?category $categories): self
-    {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }

@@ -38,11 +38,14 @@ class ImageCrudController extends AbstractCrudController
                 ->OnlyOnIndex(),
             TextareaField::new('imageFile', 'Image')
                 ->setFormType(VichImageType::class)
-                ->OnlyWhenCreating(),
+                ->OnlyWhenCreating()
+                ->setRequired(true),
             ImageField::new('imageName', 'Image')
                 ->onlyOnIndex()
                 ->setBasePath('/image'),
-            AssociationField::new('categories'),
+            AssociationField::new('category', 'Categorie')
+                ->setRequired(true),
+                
                 
             
             

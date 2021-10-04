@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="#portfolioContainer">Réalisation</a>
         </li>
-        <li class="nav-item dropdown">
+        {# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown link
           </a>
@@ -24,25 +24,24 @@
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
+        </li> #}
       </ul>
     </div>
       {% for info in informations %}
-      <span class="navbar-text"><a href="tel:{{ info.phonenumber }}" class="text-decoration-none">             
+      <span class="navbar-text"><a href="tel:{{ info.PhoneNumberLink }}" class="text-decoration-none"></a></span>             
         {{ info.phonenumber }}
       {% endfor %}  
-      </span></a>
   </div>
 </nav>
 <header class="container-fluid" id="headerContainer">
     <div class="text-center" id="headerContainer_Logo">
     {% for image in images %}
-      {% if image.categories == "Logo Header" %}
+      {% if image.category == "Logo Header" %}
         <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" id="headerContainer_Logo_Img" >
       {% endif %}
     {% endfor %} 
     </div>
     <div class="text-center headerContainer_Chevron">
-        <a href="#serviceContainer"><img class="headerContainer_Chevron_Img rounded  mx-auto d-block d-none d-sm-block"src="{{ asset('assets/icons/chevron.png')}}"></a>
+        <a href="#serviceContainer"><img src="{{ asset('assets/icons/chevron.png')}}" class="headerContainer_Chevron_Img rounded mx-auto d-block d-none d-sm-block" alt="Chevron vers le bas"></a>
     </div> 
 </header>

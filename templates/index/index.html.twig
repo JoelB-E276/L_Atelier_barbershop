@@ -59,15 +59,10 @@
           </div>
         {% endfor %}
           </div>
-        {# <div class="col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mb-2 infoContainer_Opening">
-          {% for openingHours in openingHours %}
-            <div>{{ openingHours.open }}{{ openingHours.close }}</div>
-          {% endfor %}
-        </div> #}
       <div class="infoContainer_storefrontContainer col-sm-7 col-md-8 col-lg-4 col-xl-4">
         {% for image in images %}
           {% for info in informations %}
-            {% if image.categories == "Devanture" %}
+            {% if image.category == "Devanture" %}
               <img class="infoContainer_storefrontContainer_img img-fluid mb-2" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ info.address }}">
             {% endif %}
           {% endfor %}    
@@ -84,27 +79,27 @@
 <div class="container-fluid portfolio text-center px-lg-3 px-xl-5" id="portfolioContainer">
   <div class="row">
     <div class="my-4 ">
-      <h2 class="portfolio_Title text-center my-3">Barbe<h2>
+      <h2 class="portfolio_Title text-center my-3">Barbe</h2>
       <div class=" portfolioContainer_ClientStyle ">
       {% for image in images %}
-        {% if image.categories == "Barbe" %}
+        {% if image.category == "Barbe" %}
           <img class="portfolio_ClientStyle_Img mb-1" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
       </div>
     </div>
     <div class="my-4">
-      <h2 class="portfolio_Title text-center my-3">Coupe Femme<h2>
+      <h2 class="portfolio_Title text-center my-3">Coupe Femme</h2>
       <div class="">
       {% for image in images %}
         {% if image.category == "Coupe Femme" %}
           <img class="portfolio_ClientStyle_Img mb-1 " src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}">
         {% endif %}
       {% endfor %} 
-      </div
+      </div>
     </div>
     <div class="my-4">
-      <h2 class="portfolio_Title text-center my-3">Coupe Homme<h2>
+      <h2 class="portfolio_Title text-center my-3">Coupe Homme</h2>
       <div>
       {% for image in images %}
         {% if image.category == "Coupe Homme" %}
@@ -124,7 +119,7 @@
   <div class="d-flex justify-content-evenly">
     <div class="text-center my-2">
     {% for image in images %}
-      {% if image.categories == "Les Marques" %}
+      {% if image.category == "Les Marques" %}
         <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" >
       {% endif %}
     {% endfor %} 
