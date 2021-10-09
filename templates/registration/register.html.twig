@@ -2,8 +2,10 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-       
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Inscription{% endblock %}</title>
+        <meta name="description" content="Créer un compte adminstrateur l'Atelier Rouen">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
@@ -19,7 +21,7 @@
         {% form_theme registrationForm 'bootstrap_5_layout.html.twig' %}
             {% block body %}
                 
-                <section class="container">
+                <section class="container register">
                     <div class="text-center">
                         <h1 class="my-5">Création de compte</h1>
                     </div>
@@ -27,12 +29,15 @@
                     {{ form_start(registrationForm) }}
                         
                             {{ form_row(registrationForm.username) }}
-                            <div class=" text-center mb-3">
-                                <p>Votre mot de passe doit contenir au minimum:</p>
-                                <span class="alert alert-danger" id="lowercase">1 minuscule</span>
-                                <span class="alert alert-danger" id="uppercase">1 majuscule</span>
-                                <span class="alert alert-danger" id="number">1 chiffre</span>
-                                <span class="alert alert-danger" id="length">8 caratères</span>
+                            <div class="row mb-3">
+                                <p class="text-center">Votre mot de passe doit contenir au minimum:</p>
+                                <div class="d-flex justify-content-center">
+                                    <span class="alert alert-danger mx-1" id="lowercase">1 minuscule</span>
+                                    <span class="alert alert-danger mx-1" id="uppercase">1 majuscule</span>
+                                    <span class="alert alert-danger mx-1" id="number">1 chiffre</span>
+                                    <span class="alert alert-danger mx-1" id="special">1 caractère #?!@$%^&*-</span>
+                                    <span class="alert alert-danger mx-1" id="length">16 caratères</span>
+                                </div>    
                             </div>
                             {{ form_row(registrationForm.plainPassword) }}
                             <button class="btn btn-primary my-3" type="submit" id="button">Valider</button>
@@ -45,8 +50,10 @@
 
 
 
-
-    <script src="{{ asset('assets/js/password.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+            <script src="{{ asset('assets/js/password.js') }}"></script>
+      </body>
+</html>
 
 
 

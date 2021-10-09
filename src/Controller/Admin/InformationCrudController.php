@@ -38,6 +38,7 @@ class InformationCrudController extends AbstractCrudController
             TextField::new('city','Ville'),
             NumberField::new('postalCode', 'Code postale'),
             TextField::new('phoneNumber', 'Téléphone'),
+            TextField::new('phoneNumberlink', 'Numéro de téléphone cliquable(sans espace +33)'),
             TextField::new('siret', 'Numéro Siret')
 
         ];

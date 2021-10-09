@@ -20,6 +20,12 @@ class IndexController extends AbstractController
         $img = $imageRepository->findall();
         $opening = $openingHoursRepository->findAll();
         $info = $informationRepository->findAll();
+        $ladiesImg = $imageRepository->findByCategory(3);
+        $beardImg = $imageRepository->findByCategory(1);
+        $gentsImg = $imageRepository->findByCategory(2);
+        $brandImg = $imageRepository->findByCategory(4);
+        $storefrontImg = $imageRepository->findByCategory(5);
+        $logoHeaderImg = $imageRepository->findByCategory(6);
 
         return $this->render('index/index.html.twig', [
             'services' => $services,

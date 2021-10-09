@@ -13,7 +13,7 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
   font-size: 1rem;
-  
+  background-color: #000000;  
 }
 
 .content{
@@ -26,36 +26,45 @@ body {
 /*################################*/
 /*############ HEADER ############*/
 /*################################*/
-.navbar-dark {
+#header{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.navbar-dark{
   background-color: #000000;
-  opacity: 0.8;
+  opacity: 0.0;
   font-family:'Open Sans Condensed';
   color: white;
-
+  transition: all 0.5s ease-in-out;
 }
-#headerContainer{
+.navbar-dark.show{
+  opacity: 0.8;
+}
+#logoContainer{
   background-color: rgb(0, 0, 0);
 } 
-#headerContainer_Logo{
+#logoContainer_Logo{
     background-color: rgb(0, 0, 0);
     width: auto;
 }
 
-#headerContainer_Logo_Img{
+#logoContainer_Logo_Img{
   width: 65vw;
 }
 
-.headerContainer_Chevron{
+.logoContainer_Chevron{
   height: 15vh;
 }
 
 @keyframes moveUpDown {
-  100% { transform: translate3d(0, 25px, 0); }
+  100% { 
+    transform: translateY(25px); 
+  }
 }
-.headerContainer_Chevron_Img{
+.logoContainer_Chevron_Img{
   width: 1.5rem;
   height: 1.5rem;
-  animation: moveUpDown .8s infinite ease-in-out alternate;
+  animation: moveUpDown 0.8s infinite ease-in-out alternate;
 }
 
 
@@ -70,6 +79,7 @@ body {
     background-repeat: no-repeat;
     height: auto;
     min-height: 25vh;
+    background-color: rgb(73, 30, 230);
 }
 
 
@@ -92,14 +102,21 @@ background-attachment: fixed;
   border-style: outset;
   border-color: rgb(255, 255, 255) ;
   background-color: rgb(0, 0, 0);
-  transition: all 1.2s ease-in-out;
+  transition: all 1.2s ease-in-out;   /*EASE IN OUT ???*/
   overflow: hidden;
+  transform: rotateY(90deg);
 }
 
-.serviceContainer_Services.containerGrow{
+.serviceContainer_Services.containerRotate{
 
-  transform: translateX(200px);
-                                              /*     MODIFER TAILLE ET TROUVER animation  
+  transform: rotateY(0deg);
+  /* transform: translateX(200px);
+                                                  MODIFER TAILLE ET TROUVER animation 
+  transform: rotateY(40deg);
+  animation: two 2s infinite;
+  animation-direction: alternate;  
+  OU
+  
                                                 */
 }
 /*################################*/
@@ -109,36 +126,38 @@ background-attachment: fixed;
   font-family:'Open Sans Condensed';
   background-image: url('../../image/background/wall.jpg');
   background-size: contain;
+  
  
 }
 .infoContainer_Opening{
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0);
   max-width: 55vw;
+  border-width: 2px;
+  border-style: outset;
+  border-color: rgb(255, 255, 255) ;
 }
 
 .infoContainer_Opening_Day{
-float: left;
+  float: left;
 
 }
 .infoContainer_Opening_OpenClose{
-  float:right;
+  float: right;
+}
 
-}
-.infoContainer_storefrontContainer{
-  text-align: center;
-  
-}
 .infoContainer_storefrontContainer img{
   width: 70vw;
- }
+}
 
  
 /*################################*/
 /*########## MAP GOOGLE ##########*/
 /*################################*/
+
 .infoContainer_mapContainer{
   width: 100vw;
+  
   }  
 
 .infoContainer_mapContainer_maps{
@@ -148,6 +167,7 @@ float: left;
 /*################################*/
 /*########## PORTFOLIO ###########*/
 /*################################*/
+
 #portfolioContainer{
   background-image: url('../../image/background/rasage-traditionnel-ecologique-economique-compressor1.jpg');
 }
@@ -157,6 +177,7 @@ float: left;
   max-height: 80vh;
   width: auto;
   height: auto;
+  
 
 }
 .portfolio_Title{
@@ -179,6 +200,10 @@ float: left;
   max-height: 15vh;
   width: auto;
   height: auto;
+}
+
+.register{
+  background-color: rgb(210, 210, 211);
 }
                                 /*###################################*/
                                 /*########## MEDIA QUERIES ##########*/
@@ -206,7 +231,7 @@ float: left;
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
 
-  #headerContainer_Logo_Img{
+  #logoContainer_Logo_Img{
   width: 60vw;
   }
 
@@ -243,7 +268,7 @@ float: left;
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
 
-  #headerContainer_Logo_Img{
+  #logoContainer_Logo_Img{
     width: 45vw;
   }
 
@@ -262,7 +287,10 @@ float: left;
   }
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::: SERVICES ::::::::::::*/
-  /*::::::::::::::::::::::::::::::::*/   
+  /*::::::::::::::::::::::::::::::::*/ 
+  #informationsContainer{
+    font-size: 1.1rem;
+  }  
  
   .infoContainer_storefrontContainer img{
     max-width: 30vw;
@@ -291,13 +319,16 @@ float: left;
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
 
-  #headerContainer_Logo_Img{
+  #logoContainer_Logo_Img{
     width: 45vw;
   }
 
 /*::::::::::::::::::::::::::::::::*/
 /*::::::::: INFO_CONTAINER :::::::*/
 /*::::::::::::::::::::::::::::::::*/
+  #informationsContainer{
+    font-size: 1.3rem;
+  }
   .infoContainer_Opening{
     max-width: 25vw;
   }
@@ -313,11 +344,13 @@ float: left;
 /*::::::::::::::::::::::::::::::::*/
 
   .infoContainer_mapContainer{
-    width: 35vw;
+    width: 40vw;
+   
     
   }
   .infoContainer_mapContainer_maps{
     width: 35vw;
+  
     }
 
  /*::::::::::::::::::::::::::::::::*/
@@ -325,8 +358,8 @@ float: left;
  /*::::::::::::::::::::::::::::::::*/
    
   .portfolio_ClientStyle_Img{
-    max-width: 20vw;
-    max-height: 20vh;
+    max-width: 30vw;
+    max-height: 30vh;
     width: auto;
     height: auto;
   
@@ -342,13 +375,17 @@ float: left;
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
 
-  #headerContainer_Logo_Img{
+  #logoContainer_Logo_Img{
     width: 45vw;
   }
 
   /*::::::::::::::::::::::::::::::::*/
   /*::::::: INFO_CONTAINER :::::::::*/
   /*::::::::::::::::::::::::::::::::*/
+
+  #informationsContainer{
+    font-size: 1.2rem;
+  }
   .infoContainer_Opening{
     max-width: 15vw;
   }
@@ -361,11 +398,15 @@ float: left;
    }
 
   .infoContainer_mapContainer{
-    width: 35vw;
-    
+    max-width: 65vw;
+    max-height: 40vh;
+    width: auto;
+    height: auto;
   }
   .infoContainer_mapContainer_maps{
-    width: 35vw;
+    max-width: 45vw;
+    max-height: 35vh;
+   
     }
 
  /*::::::::::::::::::::::::::::::::*/
@@ -373,8 +414,8 @@ float: left;
  /*::::::::::::::::::::::::::::::::*/
    
   .portfolio_ClientStyle_Img{
-    max-width: 25vw;
-    max-height: 25vh;
+    max-width: 30vw;
+    max-height: 30vh;
     width: auto;
     height: auto;
   

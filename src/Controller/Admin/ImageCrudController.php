@@ -45,7 +45,7 @@ class ImageCrudController extends AbstractCrudController
                 ->setBasePath('/image'),
             AssociationField::new('category', 'Categorie')
                 ->setRequired(true),
-            TextField::new('imageAlt', 'Attribut HTML "ALT"'),
+            TextField::new('imageAlt', 'Attribut HTML "ALT"(courte description pour référencement naturel)'),
                                           
            ];
     }
