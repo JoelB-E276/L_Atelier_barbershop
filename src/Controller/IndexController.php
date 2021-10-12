@@ -17,9 +17,10 @@ class IndexController extends AbstractController
     public function index(ServiceRepository $ServiceRepository, ImageRepository $imageRepository,OpeningHoursRepository $openingHoursRepository,InformationRepository $informationRepository, CategoryRepository $categoryRepository ): Response
     {
         $services = $ServiceRepository->findall();
-        $img = $imageRepository->findall();
         $opening = $openingHoursRepository->findAll();
         $info = $informationRepository->findAll();
+        $img = $imageRepository->findall();
+         // Get images by Category, the statments are ID of Categories
         $ladiesImg = $imageRepository->findByCategory(3);
         $beardImg = $imageRepository->findByCategory(1);
         $gentsImg = $imageRepository->findByCategory(2);
@@ -32,6 +33,12 @@ class IndexController extends AbstractController
             'images' => $img,
             'openingHours' => $opening,
             'informations' => $info,
+            'ladiesImg' => $ladiesImg,
+            'gentsImg' => $gentsImg,
+            'beardImg' => $beardImg,
+            'brandImg' =>   $brandImg,
+            'storefrontImg' => $storefrontImg,
+            'logoHeaderImg' => $logoHeaderImg,
         ]);
     }
 }

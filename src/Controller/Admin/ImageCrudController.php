@@ -39,17 +39,18 @@ class ImageCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->OnlyWhenCreating()
                 ->setRequired(true),
-             /*Create thumbnail after uploalding */
+             /* Create thumbnail after uploalding */
             ImageField::new('imageName', 'Image')
                 ->onlyOnIndex()
                 ->setBasePath('/image'),
+            /* Get Category data with configureFilters() */
             AssociationField::new('category', 'Categorie')
                 ->setRequired(true),
             TextField::new('imageAlt', 'Attribut HTML "ALT"(courte description pour référencement naturel)'),
                                           
            ];
     }
-    /* Function to change name on pages */
+    /* Function to change titles of pages */
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -57,7 +58,7 @@ class ImageCrudController extends AbstractCrudController
             ->setPageTitle('edit', 'Modifier')
         ;
     }
-    /*Function to add Category Entity in form */
+    /* Function to add Category Entity in form */
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
