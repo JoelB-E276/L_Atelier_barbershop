@@ -45,6 +45,12 @@ class Service
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="services")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
+
       
     public function getId(): ?int
     {
@@ -95,6 +101,18 @@ class Service
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getAdmin(): ?admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?admin $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }

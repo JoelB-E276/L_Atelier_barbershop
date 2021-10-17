@@ -16,8 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
-
 /**
  * @IsGranted("ROLE_ADMIN")
  */
@@ -37,7 +35,7 @@ class DashboardController extends AbstractDashboardController
         return Dashboard::new()
             ->setTitle('L\'Atelier Barbershop Rouen');
     }
-
+    /* Function to add Link to CRUD Entities on the left of the page*/
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Aide', 'fas fa-question');
@@ -46,7 +44,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Horaires', 'far fa-clock', OpeningHours::class);
         yield MenuItem::linkToCrud('Coordonnées', 'fas fa-info', Information::class);
         yield MenuItem::linkToCrud('Comptes Utilisateurs', 'fas fa-user-lock', Admin::class)->setPermission('ROLE_SUPER_ADMIN');
-        yield MenuItem::linkToCrud('Catégorie', 'far fa-list-alt', Category::class)->setPermission('ROLE_SUPER_ADMIN');;
+
+       /*   The Category fieds must not be modified. Categories are essential for display
+        yield MenuItem::linkToCrud('Catégorie', 'far fa-list-alt', Category::class)->setPermission('ROLE_SUPER_ADMIN'); */
 
     }
 

@@ -33,11 +33,15 @@ class InformationCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('admin', 'Auteur')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
             TextField::new('name','Nom de l\'enseigne'),
             TextField::new('address','Adresse'),
             TextField::new('city','Ville'),
             NumberField::new('postalCode', 'Code postale'),
             TextField::new('phoneNumber', 'Téléphone'),
+            TextField::new('phoneNumberlink', 'Numéro de téléphone cliquable(sans espace +33)'),
             TextField::new('siret', 'Numéro Siret')
 
         ];

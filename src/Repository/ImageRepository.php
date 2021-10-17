@@ -19,6 +19,20 @@ class ImageRepository extends ServiceEntityRepository
         parent::__construct($registry, Image::class);
     }
 
+    public function findByCategory($value)
+    {
+        return $this->createQueryBuilder('i')
+            ->setParameter('val', $value)
+            ->where('i.category = :val')
+/*             OderBy to have the most recent first
+ */         ->orderBy('i.updatedAt', 'DESC')
+           /*  Paramètre a définir en fonction du poids total
+            ->setMaxResults(10) */
+            ->getQuery()
+            ->getResult()
+        ;   
+    }
+
     // /**
     //  * @return Image[] Returns an array of Image objects
     //  */

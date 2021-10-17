@@ -1,36 +1,33 @@
-const services = document.getElementsByClassName('serviceContainer_Services');
-const headerImg = document.getElementById('headerContainer_Logo_Img');
+/*Html element function serviceAnim*/
+services = document.getElementsByClassName('serviceContainer_Services');
+logo = document.getElementById('logoContainer_Logo_Img');
+let logo_Height = logo.clientHeight;
+/*Html element function showNavbar */
+logoContainer = document.getElementById('logoContainer');
+hiddenNav = document.getElementById('hiddenNavbar');
+let logoContainer_Height = logoContainer.clientHeight;
 
-const headerContainer = document.getElementById('headerContainer');
-const hiddenNav = document.getElementById('hiddenNavbar');
-let headerImg_Height = headerImg.clientHeight;
-let header_Height = headerContainer.clientHeight;
 
-hiddenNav.style.display = 'none';
-
-/* ADD and REMOVE class on servicesContainer*/
-window.addEventListener('scroll', () =>{
-    if(window.scrollY > headerImg_Height){
+/* ADD class on servicesContainer */
+window.addEventListener('scroll', function serviceAnim(){
+    /*Get the scroll height and compar with header img height */
+    if(window.scrollY > logo_Height){
+        /*Loop on HTLM Collection for add class on each element*/
         for(let i = 0; i < services.length ; i++){
-            services[i].classList.add('containerGrow');
-        }
-    }
-    else{
-        for(let i = 0; i < services.length ; i++){
-            services[i].classList.remove('containerGrow');
+            services[i].classList.add('containerRotate');
         }
     }
 }); 
 
 
-/*  AJOUTER TRANSITION SUR LA NAV*/
-
-window.addEventListener('scroll', () =>{
-    if(window.scrollY > header_Height){
-/*         hiddenNav.style.display.transition = 'all 0.5sw';
- */        hiddenNav.style.display = 'block';
+/* Function for show or hide navbar*/
+window.addEventListener('scroll', function showNavbar(){
+    /*Get the scroll height and compar with header height */
+    if(window.scrollY > logoContainer_Height){
+        /*      Change navbar display   */ 
+        hiddenNav.classList.add('show');
     }
     else{
-        hiddenNav.style.display = 'none'
+        hiddenNav.classList.remove('show');
     }
 });

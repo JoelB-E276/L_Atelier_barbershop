@@ -24,6 +24,9 @@ class OpeningHoursCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('admin', 'Auteur')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
             TextareaField::new('day', 'Jour'),
             TextField::new('open', 'Ouverture'),
             TextField::new('close', 'Fermeture'),
@@ -36,6 +39,14 @@ class OpeningHoursCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle('index', 'Horaires d\'ouverture')
         ;
+    }
+    
+    public function createEntity(string $entityFqcn)
+    {
+        $openingHours = new OpeningHours();
+        $openingHours->setAdmin($this->getUser());
+
+        return $openingHours;
     }
     
 }

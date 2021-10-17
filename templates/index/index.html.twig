@@ -3,12 +3,12 @@
 {% block title %}l'Atelier Barbershop Rouen{% endblock %}
 
 {% block body %}
-                                              {# ###### SERVICE CONTAINER #####
+                                              {# ###### SERVICE CONTAINER  Prestations #####
                                               #}
   <section class="container-fluid  py-5" id="serviceContainer">
     <div class="row d-flex justify-content-around">
       <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
-        <h2 class="text-center">Coupe</h2>
+        <h2 class="text-center">Coupes</h2>
         {% for service in services %}
           {% if service.type == "Coupe"%}
             <div class="d-flex justify-content-between">
@@ -32,7 +32,7 @@
         {% endfor %}  
       </div>
     <div class="col-10 col-lg-3 mb-3 serviceContainer_Services">
-        <h2 class="text-center">Coloration / Défrisage</h2>
+        <h2 class="text-center">Colorations</h2>
         {% for service in services %}
           {% if service.type == "Coloration / Défrisage"%}
             <div class="d-flex justify-content-between">
@@ -50,16 +50,17 @@
                                                         #}
 
   <div class="container-fluid infoContainer pt-5" id="informationsContainer">
-    <div class="row d-flex justify-content-evenly-sm ">
-      <div class="col-9 col-sm-5 col-md-4 col-lg-4 col-xl-3 mb-2 infoContainer_Opening ">
-        {% for openingHours in openingHours %}
-          <div>
-            <span class="infoContainer_Opening_Day">{{ openingHours.day }}</span>
-            <span class="infoContainer_Opening_OpenClose">{{ openingHours.open }}{{ openingHours.close }}</span><br>
+    <div class="row d-flex justify-content-evenly ">
+      <div class="col-9 col-sm-5 col-md-4 col-lg-4 col-xl-3 mb-2 infoContainer_Opening">
+        <div>
+        <h3 class="text-center">Horaires</h3>
+          {% for opening in openingHours %}
+            <span class="infoContainer_Opening_Day">{{ opening.day }}</span>
+            <span class="infoContainer_Opening_OpenClose">{{ opening.open }}{{ opening.close }}</span><br>
+          {% endfor %}
           </div>
-        {% endfor %}
-          </div>
-      <div class="infoContainer_storefrontContainer col-sm-7 col-md-8 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-sm-7 col-md-8 col-lg-4 col-xl-4 text-center infoContainer_storefrontContainer">
         {% for image in images %}
           {% for info in informations %}
             {% if image.category == "Devanture" %}
@@ -69,17 +70,18 @@
         {% endfor %} 
       </div>
 
-      <div class="col-lg-4 col-xl-4 infoContainer_mapContainer ">
+      <div class="col-lg-4 col-xl-5 xxl-5 text-center infoContainer_mapContainer">
         <iframe class="infoContainer_mapContainer_maps " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.1924133156353!2d1.0875271850066959!3d49.44308023709414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0dd4f05221847%3A0x4e2697eda9580908!2sL&#39;atelier!5e0!3m2!1sfr!2sfr!4v1632235916170!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>           
   </div>
-                                                            {# ###### PORTFOLIO CONTAINER #####
+  
+                                                            {# ###### PORTFOLIO CONTAINER  #####
                                                             #}
 <div class="container-fluid portfolio text-center px-lg-3 px-xl-5" id="portfolioContainer">
   <div class="row">
     <div class="my-4 ">
-      <h2 class="portfolio_Title text-center my-3">Barbe</h2>
+      <h2 class="portfolio_Title text-center display-4 my-3">Barbes</h2>
       <div class=" portfolioContainer_ClientStyle ">
       {% for image in images %}
         {% if image.category == "Barbe" %}
@@ -89,7 +91,7 @@
       </div>
     </div>
     <div class="my-4">
-      <h2 class="portfolio_Title text-center my-3">Coupe Femme</h2>
+      <h2 class="portfolio_Title text-center display-4 my-3">Coupes Femme</h2>
       <div class="">
       {% for image in images %}
         {% if image.category == "Coupe Femme" %}
@@ -99,7 +101,7 @@
       </div>
     </div>
     <div class="my-4">
-      <h2 class="portfolio_Title text-center my-3">Coupe Homme</h2>
+      <h2 class="portfolio_Title text-center display-4 my-3">Coupes Homme</h2>
       <div>
       {% for image in images %}
         {% if image.category == "Coupe Homme" %}
@@ -111,63 +113,20 @@
   </div>
 </div>
 
-                                                            {# ###### BRAND CONTAINER #####
+                                                            {# ###### BRAND CONTAINER Les Marques #####
                                                             #}
 
 <article class="container brandContainer">
-  <h3 class="text-center py-3">Marques avec lesquelles nous travaillions et à vendre au Salon</h3>
+  <h3 class="text-center py-3">Marques avec lesquelles nous travaillions et en vente au Salon</h3>
   <div class="d-flex justify-content-evenly">
     <div class="text-center my-2">
     {% for image in images %}
       {% if image.category == "Les Marques" %}
-        <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" >
+        <img class="mx-4" src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" >
       {% endif %}
     {% endfor %} 
     </div>
   </div>  
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}

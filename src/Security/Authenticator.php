@@ -16,6 +16,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+                                    /*Security.http*/
 class Authenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
@@ -30,15 +31,17 @@ class Authenticator extends AbstractLoginFormAuthenticator
     }
 
     public function authenticate(Request $request): PassportInterface
-    {
+    {       /*Recupère le nom de l'utilisateur */
         $username = $request->request->get('username', '');
-
+            /*Sauvegarde le nom dans la session*/
         $request->getSession()->set(Security::LAST_USERNAME, $username);
-
-        return new Passport(
+        /*Puis genère un passport" va être vérif par pluseirus method*/
+        return new Passport( /*Passport avec 3 paramètres badge, Mdp, token */
+            /*Badge qui garde l'indentifiant de l'utilisateur */
             new UserBadge($username),
+            /* Garde le mot de passe ?????*/
             new PasswordCredentials($request->request->get('password', '')),
-            [
+            [    /* valide le token CSRF*/
                 new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
             ]
         );
@@ -46,17 +49,15 @@ class Authenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse($this->urlGenerator->generate('admin'));
-        }
-
-        // For example: https://grafikart.fr/forum/35029
+            if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
+                return new RedirectResponse($this->urlGenerator->generate('admin'));
+            }
         return new RedirectResponse($this->urlGenerator->generate('admin'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl(Request $request): string
-    {
+    {                   /*Genére la route de Login */
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
 }

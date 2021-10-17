@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210930194029 extends AbstractMigration
+final class Version20211015105730 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,16 @@ final class Version20210930194029 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-       // $this->addSql('CREATE TABLE subcategory (id INT AUTO_INCREMENT NOT NULL, subcategory VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE service ADD admin_id INT NOT NULL');
+        $this->addSql('ALTER TABLE service ADD CONSTRAINT FK_E19D9AD2642B8210 FOREIGN KEY (admin_id) REFERENCES admin (id)');
+        $this->addSql('CREATE INDEX IDX_E19D9AD2642B8210 ON service (admin_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-       // $this->addSql('DROP TABLE subcategory');
+        $this->addSql('ALTER TABLE service DROP FOREIGN KEY FK_E19D9AD2642B8210');
+        $this->addSql('DROP INDEX IDX_E19D9AD2642B8210 ON service');
+        $this->addSql('ALTER TABLE service DROP admin_id');
     }
 }
