@@ -8,6 +8,13 @@
                 <div class="col-6">
                     <a href="{{'https://fr-fr.facebook.com/pages/category/Hair-Salon/Latelier-2159799040919067/' }}" target="_blank"><img src="{{ asset('assets/icons/facebook.svg') }}" alt="Notre Facebook" width="45" height="45"></a>
                 </div>
+                <div class="logoFooterContainer">
+                {% for image in images %}
+                    {% if image.category == "Logo Footer" %}
+                        <img src="{{ asset('image/' ~ image.imageName) }}" alt="{{ image.imageAlt }}" id="logoFooter" >
+                    {% endif %}
+                {% endfor %}
+                </div>     
             </div>
         </div>
 

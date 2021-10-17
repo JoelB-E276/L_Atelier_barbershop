@@ -68,6 +68,12 @@ class Image
      */
     private $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="images")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
+
 
     public function getId(): ?int
     {
@@ -167,5 +173,16 @@ class Image
         return $this;
     }
 
+    public function getAdmin(): ?admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?admin $admin): self
+    {
+        $this->admin = $admin;
+
+        return $this;
+    }
 
 }

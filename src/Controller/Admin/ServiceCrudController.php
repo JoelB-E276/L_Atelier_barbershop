@@ -32,6 +32,9 @@ class ServiceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('admin', 'Auteur')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
             TextField::new('title', 'Titre'),
             TextField::new('text', 'Texte'),
             TextField::new('price', 'Tarif'),
@@ -59,6 +62,13 @@ class ServiceCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle('index', 'Prestations')
         ;
+    }
+    public function createEntity(string $entityFqcn)
+    {
+        $service = new Service();
+        $service->setAdmin($this->getUser());
+
+        return $service;
     }
     
 }

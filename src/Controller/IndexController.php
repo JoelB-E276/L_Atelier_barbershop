@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
+use App\Entity\Category;
 Use App\Repository\ImageRepository; 
 use App\Repository\ServiceRepository;
 Use App\Repository\CategoryRepository; 
@@ -19,8 +21,11 @@ class IndexController extends AbstractController
         $services = $ServiceRepository->findall();
         $opening = $openingHoursRepository->findAll();
         $info = $informationRepository->findAll();
-        $img = $imageRepository->findall();
-         // Get images by Category, the statments are ID of Categories
+        // Currently used in the template for the loops
+        $img = $imageRepository->findall(); 
+         
+        //   WORK IN PROGRESS   
+        // Get images by Category, the statments are ID of Categories
         $ladiesImg = $imageRepository->findByCategory(3);
         $beardImg = $imageRepository->findByCategory(1);
         $gentsImg = $imageRepository->findByCategory(2);
@@ -28,17 +33,24 @@ class IndexController extends AbstractController
         $storefrontImg = $imageRepository->findByCategory(5);
         $logoHeaderImg = $imageRepository->findByCategory(6);
 
+        // Retrives Category Id 
+        foreach($img as $key){
+            $image = new Image();
+            $image->setCategory($key->getCategory());
+        }
+
+       
         return $this->render('index/index.html.twig', [
             'services' => $services,
             'images' => $img,
             'openingHours' => $opening,
             'informations' => $info,
-            'ladiesImg' => $ladiesImg,
+            /* 'ladiesImg' => $ladiesImg,
             'gentsImg' => $gentsImg,
             'beardImg' => $beardImg,
             'brandImg' =>   $brandImg,
             'storefrontImg' => $storefrontImg,
-            'logoHeaderImg' => $logoHeaderImg,
+            'logoHeaderImg' => $logoHeaderImg, */
         ]);
     }
 }

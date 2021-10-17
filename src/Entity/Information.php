@@ -56,6 +56,12 @@ class Information
      */
     private $city;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="information")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
+
 
 
     public function getId(): ?int
@@ -143,6 +149,18 @@ class Information
     public function setCity(?string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getAdmin(): ?admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?admin $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }

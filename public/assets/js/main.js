@@ -8,7 +8,7 @@ hiddenNav = document.getElementById('hiddenNavbar');
 let logoContainer_Height = logoContainer.clientHeight;
 
 
-/* ADD and REMOVE class on servicesContainer*/
+/* ADD class on servicesContainer */
 window.addEventListener('scroll', function serviceAnim(){
     /*Get the scroll height and compar with header img height */
     if(window.scrollY > logo_Height){
@@ -31,11 +31,3 @@ window.addEventListener('scroll', function showNavbar(){
         hiddenNav.classList.remove('show');
     }
 });
-/* if(/[@#!*?$%]/.test(inputPassword)){
-    special.classList.replace('alert-danger','alert-success')
-    control++;
-}else{
-    special.classList.replace('alert-success','alert-danger');
-}
-^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\!\*\?\$\%])(?=.*[a-zA-Z]).{8,}$/gm
-let special = document.getElementById('special'); */

@@ -4,8 +4,6 @@
 
     font-family:'Open Sans Condensed', sans-serif;
     src: url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
-    
- 
 } 
 body {
 	margin: 0;
@@ -15,14 +13,9 @@ body {
   font-size: 1rem;
   background-color: #000000;  
 }
-
 .content{
-	flex: 1; /*#################################################     EXPLICATION   ############################*/
+	flex: 1; 
 }
-
-
-
-
 /*################################*/
 /*############ HEADER ############*/
 /*################################*/
@@ -40,6 +33,7 @@ body {
 .navbar-dark.show{
   opacity: 0.8;
 }
+
 #logoContainer{
   background-color: rgb(0, 0, 0);
 } 
@@ -47,15 +41,12 @@ body {
     background-color: rgb(0, 0, 0);
     width: auto;
 }
-
 #logoContainer_Logo_Img{
   width: 65vw;
 }
-
 .logoContainer_Chevron{
   height: 15vh;
 }
-
 @keyframes moveUpDown {
   100% { 
     transform: translateY(25px); 
@@ -66,25 +57,28 @@ body {
   height: 1.5rem;
   animation: moveUpDown 0.8s infinite ease-in-out alternate;
 }
-
-
 /*################################*/
 /*########### FOOTER #############*/
 /*################################*/
 
 .footerContainer{
-    background-image: url('../../image/background/logofooter.png');
     background-size: 25vh;
     background-position: center;
     background-repeat: no-repeat;
     height: auto;
     min-height: 25vh;
-    background-color: rgb(73, 30, 230);
+    color: #e7e7e7;
+    background: -moz-linear-gradient(45deg, #000000 0%, #2F2C2E 50%, #000000 100%);
+    background: -webkit-linear-gradient(45deg, #000000 0%, #2F2C2E 50%, #000000 100%);
+    background: linear-gradient(45deg, #000000 0%, #2F2C2E 50%, #000000 100%);    
 }
-
-
-
-
+.logoFooterContainer{
+  width: min-content;
+  margin: auto;
+}
+#logoFooter{
+  width: 25vh;
+}
 /*#################################*/
 /*########## SERVICES #############*/
 /*#################################*/
@@ -94,7 +88,6 @@ font-size: 1.25rem;
 font-family:'Open Sans Condensed';
 background-image: url('../../image/background/background-tree-wood-boards-texture-wooden-background-1370489-pxhere.com.jpg');
 background-attachment: fixed;
-
 }
 .serviceContainer_Services{
   border-width: 2px;
@@ -102,32 +95,20 @@ background-attachment: fixed;
   border-style: outset;
   border-color: rgb(255, 255, 255) ;
   background-color: rgb(0, 0, 0);
-  transition: all 1.2s ease-in-out;   /*EASE IN OUT ???*/
+  transition: all 1.2s ease-in-out;   
   overflow: hidden;
   transform: rotateY(90deg);
 }
-
 .serviceContainer_Services.containerRotate{
-
   transform: rotateY(0deg);
-  /* transform: translateX(200px);
-                                                  MODIFER TAILLE ET TROUVER animation 
-  transform: rotateY(40deg);
-  animation: two 2s infinite;
-  animation-direction: alternate;  
-  OU
-  
-                                                */
 }
 /*################################*/
 /*######## INFO_CONTAINER ########*/
 /*################################*/
 .infoContainer{
   font-family:'Open Sans Condensed';
-  background-image: url('../../image/background/wall.jpg');
+  background-image: url('../../image/background/abstract-wood-texture-floor-old-pattern-1272182-pxhere.com.jpg');
   background-size: contain;
-  
- 
 }
 .infoContainer_Opening{
   color: rgb(255, 255, 255);
@@ -137,33 +118,25 @@ background-attachment: fixed;
   border-style: outset;
   border-color: rgb(255, 255, 255) ;
 }
-
 .infoContainer_Opening_Day{
   float: left;
-
 }
 .infoContainer_Opening_OpenClose{
   float: right;
 }
-
 .infoContainer_storefrontContainer img{
   width: 70vw;
 }
-
- 
-/*################################*/
+ /*################################*/
 /*########## MAP GOOGLE ##########*/
 /*################################*/
 
 .infoContainer_mapContainer{
   width: 100vw;
-  
   }  
-
 .infoContainer_mapContainer_maps{
     width: 90vw;
   }
-  
 /*################################*/
 /*########## PORTFOLIO ###########*/
 /*################################*/
@@ -171,19 +144,16 @@ background-attachment: fixed;
 #portfolioContainer{
   background-image: url('../../image/background/rasage-traditionnel-ecologique-economique-compressor1.jpg');
 }
-
 .portfolio_ClientStyle_Img{
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 60vw;
+  max-height: 60vh;
   width: auto;
   height: auto;
-  
-
 }
 .portfolio_Title{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}  
-
+  font-family:'Open Sans Condensed';
+  color: rgb(0, 0, 0);
+ }  
 /*#################################*/
 /*######## BRAND CONTAINER ########*/
 /*#################################*/
@@ -191,50 +161,45 @@ background-attachment: fixed;
 .brandContainer{
   font-family:'Roboto Condensed';
   color: #000000;
-  background-color: rgb(22, 200, 206);
+  background-color: rgb(196, 196, 196);
   height: 30vh;
   }
-  
 .brandContainer img{
   max-width: 15vw;
   max-height: 15vh;
   width: auto;
   height: auto;
 }
-
 .register{
   background-color: rgb(210, 210, 211);
 }
-                                /*###################################*/
-                                /*########## MEDIA QUERIES ##########*/
-                                /*###################################*/
-
+                                    /*###################################*/
+                                    /*########## MEDIA QUERIES ##########*/
+                                    /*###################################*/
 
 @media screen and (min-width:576px) and (max-width: 767px){
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::: PORTOFOLIO ::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
-   
+
   .portfolio_ClientStyle_Img{
     max-width: 35vw;
     max-height: 35vh;
     width: auto;
     height: auto;
-  
-  }  
+  } 
+  #logoFooter{
+    width: 30vh;
+  } 
 }
-
-
 @media screen and (min-width:768px) and (max-width:992px){
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
 
   #logoContainer_Logo_Img{
-  width: 60vw;
+    width: 60vw;
   }
-
   /*::::::::::::::::::::::::::::::::*/
   /*::::::: INFO_CONTAINER :::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -242,7 +207,6 @@ background-attachment: fixed;
   .infoContainer_storefrontContainer img{
     width: 40vw;
    }
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::: PORTOFOLIO ::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -253,16 +217,11 @@ background-attachment: fixed;
     width: auto;
     height: auto;
   
+  }
+  #logoFooter{
+    width: 30vh;
   } 
-
-
 } 
-
-
-
-
-
-
 @media screen and (min-width:993px) and (max-width:1200px){
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::::: HEADER ::::::::::::*/
@@ -271,10 +230,6 @@ background-attachment: fixed;
   #logoContainer_Logo_Img{
     width: 45vw;
   }
-
-
-
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::: MAP GOOGLE ::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -291,30 +246,25 @@ background-attachment: fixed;
   #informationsContainer{
     font-size: 1.1rem;
   }  
- 
-  .infoContainer_storefrontContainer img{
+   .infoContainer_storefrontContainer img{
     max-width: 30vw;
     max-height: 30vh;
     width: auto;
     height: auto;
    }
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::: PORTOFOLIO ::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
    
   .portfolio_ClientStyle_Img{
-    max-width: 30vw;
-    max-height: 30vh;
+    max-width: 25vw;
+    max-height: 25vh;
     width: auto;
     height: auto;
   
-  }
-  
-}   
- 
+  }   
+} 
 @media screen and (min-width:1200px)and (max-width:1400px){
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -322,7 +272,6 @@ background-attachment: fixed;
   #logoContainer_Logo_Img{
     width: 45vw;
   }
-
 /*::::::::::::::::::::::::::::::::*/
 /*::::::::: INFO_CONTAINER :::::::*/
 /*::::::::::::::::::::::::::::::::*/
@@ -332,45 +281,35 @@ background-attachment: fixed;
   .infoContainer_Opening{
     max-width: 25vw;
   }
-  
-  .infoContainer_storefrontContainer img{
+    .infoContainer_storefrontContainer img{
     max-width: 35vw;
     max-height: 35vh;
     width: auto;
     height: auto;
-   }
+  }
 /*::::::::::::::::::::::::::::::::*/
 /*:::::::::: MAP GOOGLE ::::::::::*/
 /*::::::::::::::::::::::::::::::::*/
 
   .infoContainer_mapContainer{
     width: 40vw;
-   
-    
   }
   .infoContainer_mapContainer_maps{
     width: 35vw;
-  
-    }
+  }
 
  /*::::::::::::::::::::::::::::::::*/
  /*:::::::::: PORTOFOLIO ::::::::::*/
  /*::::::::::::::::::::::::::::::::*/
    
   .portfolio_ClientStyle_Img{
-    max-width: 30vw;
-    max-height: 30vh;
+    max-width: 35vw;
+    max-height: 35vh;
     width: auto;
     height: auto;
-  
   }
-  
-  
-  
-
 }
 @media screen and (min-width:1400px){
-
   /*::::::::::::::::::::::::::::::::*/
   /*:::::::::::: HEADER ::::::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -378,7 +317,6 @@ background-attachment: fixed;
   #logoContainer_Logo_Img{
     width: 45vw;
   }
-
   /*::::::::::::::::::::::::::::::::*/
   /*::::::: INFO_CONTAINER :::::::::*/
   /*::::::::::::::::::::::::::::::::*/
@@ -389,14 +327,12 @@ background-attachment: fixed;
   .infoContainer_Opening{
     max-width: 15vw;
   }
-
   .infoContainer_storefrontContainer img{
     max-width: 35vw;
     max-height: 35vh;
     width: auto;
     height: auto;
    }
-
   .infoContainer_mapContainer{
     max-width: 65vw;
     max-height: 40vh;
@@ -406,28 +342,19 @@ background-attachment: fixed;
   .infoContainer_mapContainer_maps{
     max-width: 45vw;
     max-height: 35vh;
-   
-    }
-
+  }
  /*::::::::::::::::::::::::::::::::*/
  /*:::::::::: PORTOFOLIO ::::::::::*/
  /*::::::::::::::::::::::::::::::::*/
    
   .portfolio_ClientStyle_Img{
-    max-width: 30vw;
-    max-height: 30vh;
+    max-width: 40vw;
+    max-height: 40vh;
     width: auto;
     height: auto;
-  
   }
 }
-
-
-
-
-/*  width = largeur
-    height = hauteur
-    BOOTSRAP Breakpoints
+/*  BOOTSRAP Breakpoints
     xs: 0,
     sm: 576px,
     md: 768px,
@@ -438,7 +365,7 @@ background-attachment: fixed;
     481px — 768px: iPads, Tablets
     769px — 1024px: Small screens, laptops
     1025px — 1200px: Desktops, large screens
-    1201px and more —  Extra large screens, TV 
+    1200px and more —  Extra large screens, TV 
   
     
 */

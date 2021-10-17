@@ -6,8 +6,8 @@ let uppercase = document.getElementById('uppercase');
 let number = document.getElementById('number');
 let special = document.getElementById('special');
 let passwordlength = document.getElementById('length');
- /*Initialize parameters*/
- let passwordMinLength = 16;
+ /*Initialize parameter*/
+let passwordMinLength = 16;
 
 
 /*Function to check if the password is strong*/
@@ -64,10 +64,8 @@ passwordForm.addEventListener('input', ()=>{
     /*Verify all controls are true and active validation button */
     if(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{16,}$/.test(inputPassword)){
         button.disabled = false;
-        console.log('oui');    
     }else{
         button.disabled = true;
-        console.log('non');
     }
  
     

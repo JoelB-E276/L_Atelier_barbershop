@@ -24,8 +24,10 @@ class ImageRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('i')
             ->setParameter('val', $value)
             ->where('i.category = :val')
-            //Chnager et ordonner par date: du plus récent
-            ->orderBy('i.id', 'DESC')
+/*             OderBy to have the most recent first
+ */         ->orderBy('i.updatedAt', 'DESC')
+           /*  Paramètre a définir en fonction du poids total
+            ->setMaxResults(10) */
             ->getQuery()
             ->getResult()
         ;   

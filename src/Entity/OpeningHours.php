@@ -36,6 +36,12 @@ class OpeningHours
      */
     private $close;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="openingHours")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
+
 
     public function getId(): ?int
     {
@@ -74,6 +80,18 @@ class OpeningHours
     public function setClose(?string $close): self
     {
         $this->close = $close;
+
+        return $this;
+    }
+
+    public function getAdmin(): ?admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?admin $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }

@@ -15,6 +15,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+
                                     /*Security.http*/
 class Authenticator extends AbstractLoginFormAuthenticator
 {
@@ -48,16 +49,9 @@ class Authenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        if (in_array('ROLE_ADMIN',$token->getRoleNames())) {
             if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
                 return new RedirectResponse($this->urlGenerator->generate('admin'));
             }
-        } else {
-                return new RedirectResponse($this->urlGenerator->generate('index'));
-        }  
-
-        // For example: https://grafikart.fr/forum/35029
-         /* utilisateur authenfié redirig vers une route choisit */
         return new RedirectResponse($this->urlGenerator->generate('admin'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
