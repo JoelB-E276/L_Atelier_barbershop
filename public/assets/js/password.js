@@ -17,57 +17,44 @@ passwordForm.addEventListener('input', ()=>{
    
     /*Lowercase control*/
     if(/[a-z]/.test(inputPassword)){
-        /*Change Class*/
+        /*Change Class on HTML element. Red to green*/
         lowercase.classList.replace('alert-danger','alert-success');
     }else{
         lowercase.classList.replace('alert-success','alert-danger');
     }
     /*Upperercase control*/
     if(/[A-Z]/.test(inputPassword)){
+         /*Change Class on HTML element. Red to green*/
         uppercase.classList.replace('alert-danger','alert-success');
     }else{
         uppercase.classList.replace('alert-success','alert-danger');
     }
     /*Number control*/
     if(/[0-9]/.test(inputPassword)){
+         /*Change Class on HTML element. Red to green*/
         number.classList.replace('alert-danger','alert-success')
     }else{
         number.classList.replace('alert-success','alert-danger');
     }
     /* Special character control */
     if(/[#?!@$%^&*-]/.test(inputPassword)){
+         /*Change Class on HTML element. Red to green*/
         special.classList.replace('alert-danger','alert-success')
     }else{
         special.classList.replace('alert-success','alert-danger');
     }
     /* Lenght control */
     if(inputPassword.length >= passwordMinLength){
+         /*Change Class on HTML element. Red to green*/
         passwordlength.classList.replace('alert-danger','alert-success');
     }else{
         passwordlength.classList.replace('alert-success','alert-danger');
     }
-            /* 
-            ^ debut de chaine ou de ligne (rien avant)
-            (?=(/ce quon cherche/)) permet de stocker la correspondance
-            * quantificateur , un ou plusieurs.
-            *? quantificateur lazy, arrête sa recherche dès la permière correspondance
-            - désigne un interval
-            [] désigne un groupe alternatif
-            (?=.*\d) il y a au moins un chiffre
-            (?=.*[a-z]) il y au moins une minuscule
-               {8} = 8 uniquement
-               {8,} = 8 length ou plus
-               {8,10} = entre 8 et 10
-              $ = operateur de partie, différente valeur. Ici que la fin de la chaine doit être au moins égale a 16
-              */
-
     /*Verify all controls are true and active validation button */
     if(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{16,}$/.test(inputPassword)){
         button.disabled = false;
     }else{
         button.disabled = true;
-    }
- 
-    
+    }  
 })
 
