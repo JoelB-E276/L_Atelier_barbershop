@@ -64,6 +64,7 @@ class AdminTest extends TestCase
      public function testIsEmpty()
     {
         $user = new Admin();
+        /**If Password is unset : return null, expected String */
         $user->setPassword('');
 
         $this->assertEmpty($user->getUserIdentifier());

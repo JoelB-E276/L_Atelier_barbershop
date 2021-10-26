@@ -51,9 +51,7 @@ class ServiceCrudController extends AbstractCrudController
                 'Coupe' => 'Coupe',
                 'Barbe' => 'Barbe',
                 'Coloration / Défrisage' => 'Coloration / Défrisage'
-            ])
-
-           
+            ]) 
         ];
     }
 

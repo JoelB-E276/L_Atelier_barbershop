@@ -33,17 +33,16 @@ class Authenticator extends AbstractLoginFormAuthenticator
     }
 
     public function authenticate(Request $request): PassportInterface
-    {       /*Recupère le nom de l'utilisateur */
+    {      
         $username = $request->request->get('username', '');
-            /*Sauvegarde le nom dans la session*/
+            
         $request->getSession()->set(Security::LAST_USERNAME, $username);
-        /*Puis genère un passport" va être vérif par pluseirus method*/
-        return new Passport( /*Passport avec 3 paramètres badge, Mdp, token */
-            /*Badge qui garde l'indentifiant de l'utilisateur */
+        
+        return new Passport( 
             new UserBadge($username),
-            /* Garde le mot de passe ?????*/
+            
             new PasswordCredentials($request->request->get('password', '')),
-            [    /* valide le token CSRF*/
+            [    
                 new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
             ]
         );
@@ -55,7 +54,7 @@ class Authenticator extends AbstractLoginFormAuthenticator
                 return new RedirectResponse($this->urlGenerator->generate('admin'));
             }
             /* Redirect according to role  */
-            if($this->security->isGranted('ROLE_ADMIN')){
+            if ($this->security->isGranted('ROLE_ADMIN')){
                 return new RedirectResponse($this->urlGenerator->generate('admin'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
                 }else

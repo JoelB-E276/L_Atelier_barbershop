@@ -32,13 +32,6 @@ class IndexController extends AbstractController
         $brandImg = $imageRepository->findByCategory(4);
         $storefrontImg = $imageRepository->findByCategory(5);
         $logoHeaderImg = $imageRepository->findByCategory(6);
-
-        // Retrives Category Id 
-        foreach($img as $key){
-            $image = new Image();
-            $image->setCategory($key->getCategory());
-        }
-
        
         return $this->render('index/index.html.twig', [
             'services' => $services,

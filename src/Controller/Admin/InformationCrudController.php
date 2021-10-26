@@ -26,10 +26,7 @@ class InformationCrudController extends AbstractCrudController
     {
         return Information::class;
     }
-
-
-
-    
+   
     public function configureFields(string $pageName): iterable
     {
         return [

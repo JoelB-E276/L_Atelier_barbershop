@@ -7,6 +7,12 @@ use App\Entity\Image;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\File;
 
+/*
+@test
+assertSame(mixed $expected, mixed $actual[, string $message = ''])
+https://phpunit.readthedocs.io/fr/latest/assertions.html#assertsame 
+ */
+
 class ImageTest extends TestCase
 {
     public function testIsTrue()
