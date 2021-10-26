@@ -42,14 +42,14 @@ class ImageCrudController extends AbstractCrudController
                 ->hideWhenUpdating(),
             TextField::new('imageName', 'Nom du fichier')
                 ->OnlyOnIndex(),
+             /* Create thumbnail after uploalding */
+            ImageField::new('imageName', 'Image')
+             ->onlyOnIndex()
+             ->setBasePath('/image'),    
             TextareaField::new('imageFile', 'Image')
                 ->setFormType(VichImageType::class)
                 ->OnlyWhenCreating()
                 ->setRequired(true),
-             /* Create thumbnail after uploalding */
-            ImageField::new('imageName', 'Image')
-                ->onlyOnIndex()
-                ->setBasePath('/image'),
             /* Get Category data with configureFilters() */
             AssociationField::new('category', 'Categorie')
                 ->setRequired(true),

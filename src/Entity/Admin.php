@@ -181,11 +181,6 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->username;
-    }
-
     /**
      * @return Collection|OpeningHours[]
      */
@@ -275,4 +270,10 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    
+    public function __toString()
+    {
+        return $this->username;
+    }
+
 }
